@@ -1,0 +1,314 @@
+
+ <section>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+<div class="row">
+  <div class="container-fluid">
+    <div class="row text-left">
+      <div class="col-md-8">
+        <div class="content-header" style="font-size: 20px">{{storename}} Details</div>
+        <br>
+        <p class="content-sub-header"> <a routerLink="/dashboard"><span
+              style="font-size: 15px">Home</span></a>
+          <span style="font-size: 15px">/{{storename}}</span>
+
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+ <!-- <div class="col-xl-6 col-md-12">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-body cleartfix">
+            <div class="media align-items-stretch">
+              <div class="align-self-center">
+                <h1 class="mr-2">$36,000.00</h1>
+              </div>
+              <div class="media-body">
+                <h4>Total Cost</h4>
+                <span>Monthly Cost</span>
+              </div>
+              <div class="align-self-center">
+                <i class="icon-wallet success font-large-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!--  -->
+    <div class="row">
+      <!-- <div class="col-xl-4 col-sm-6 col-12"> 
+        <div class="card" style="color:darkcyan">
+          <div class="card-content">
+            <div class="card-body" style="color:brown">
+              <div class="media d-flex">
+                 <div class="align-self-center" style=" background-color:rgb(248, 11, 11)"> 
+                   <i class="icon-user font-large-2 float-left" style="color:blueviolet"></i>
+                  <div class="media-body text-left" style="color:blue">
+                  <a routerLink="/user-management"><span>Active Users</span></a>
+                </div>
+                <div class="media-body text-right" style="color:blue">
+                   <a routerLink="/user-management"><span>Active Users</span></a> 
+                 
+                  <h3>{{dashboard?.storeInfoResponse?.totalUsers}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card " style="min-height:100px">
+          <div class="card-content">
+            <div class="card-body ">
+              <div class="media d-flex">
+                 <div class="media-body text-left" style="color:blue">
+                <!-- <i class="icon-pie-chart warning font-large-2 float-left"></i> -->
+                <a   routerLink="/user-management/user-management-for-dashboard" style="color: blue"><span>Active Users</span></a>
+                </div> 
+                <div class="media-body text-right" style="color:blue">
+                  
+                  <h3>{{dashboard?.storeInfoResponse?.totalUsers}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card " style="min-height:100px">
+          <div class="card-content">
+            <div class="card-body ">
+              <div class="media d-flex">
+                 <div class="media-body text-left" style="color:blue">
+                <!-- <i class="icon-pie-chart warning font-large-2 float-left"></i> -->
+                  <span>Today Inserted Bills</span>
+                </div> 
+                <div class="media-body text-right" style="color:blue">
+                  
+                  <h3>${{dashboard?.totalEodBillsAmount}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center" style=" background-color:rgb(24, 161, 104)">
+                  <i class="icon-graph success font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right" style="color:blue">
+                 <span>Stand Bank Balance</span>
+                  <h3>${{dashboard?.stateBankBalance}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card " style="min-height:100px">
+          <div class="card-content">
+            <div class="card-body ">
+              <div class="media d-flex">
+                 <div class="media-body text-left" style="color:blue">
+                <!-- <i class="icon-pie-chart warning font-large-2 float-left"></i> -->
+                  <span>Change Request</span>
+                </div> 
+                <div class="media-body text-right" style="color:blue">
+                  
+                  <h3>${{dashboard?.changeRequestBalance}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      
+      
+      <!--<div class="col-xl-4 col-sm-6 col-12">
+         <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center" style=" background-color:rgb(116, 42, 165)">
+                  <i class="icon-graph success font-large-2 float-left"></i>
+                </div>
+                <div class="media-body text-right" style="color:blue">
+                <span>Change Request</span>
+                <h3>${{dashboard?.changeRequestBalance}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card " style="min-height:100px">
+          <div class="card-content">
+            <div class="card-body ">
+              <div class="media d-flex">
+                 <div class="media-body text-left" style="color:blue">
+                <!-- <i class="icon-pie-chart warning font-large-2 float-left"></i> -->
+                  <span>Stand Bank Balance</span>
+                </div> 
+                <div class="media-body text-right" style="color:blue">
+                  
+                  <h3>${{dashboard?.stateBankBalance}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+
+      <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card " style="min-height:100px">
+          <div class="card-content">
+            <div class="card-body ">
+              <div class="media d-flex">
+                 <div class="media-body text-left" style="color:blue">
+                <!-- <i class="icon-pie-chart warning font-large-2 float-left"></i> -->
+                  <span>MainSafe Balance</span>
+                </div> 
+                <div class="media-body text-right" style="color:blue">
+                  <h3>${{dashboard?.mainSafeBalance}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-sm-6 col-12">
+        <div class="card " style="min-height:100px">
+          <div class="card-content">
+            <div class="card-body ">
+              <div class="media d-flex">
+                 <div class="media-body text-left" style="color:blue">
+                <!-- <i class="icon-pie-chart warning font-large-2 float-left"></i> -->
+                  <span> ShiftMnager Balance</span>
+                </div> 
+                <div class="media-body text-right" style="color:blue">
+                  <h3>${{dashboard?.shiftManagerBalance}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+
+<!-- <section class="store-info">
+  <div class="row my-5">
+    <div class="col-md-4">
+      <div class="card" style="flood-color: rgb(43, 226, 125);" routerLink="/dashboard/charts">
+        <div class="card-header" style="color:blueviolet">
+        StoreInformation
+        </div>
+        <div class="card-body" style="color:rgb(43, 226, 104)">
+           <div>StoreName:{{storename}}</div>
+           <div>TotalUsers:{{storeinfermation.totalUsers}}</div>
+               <div>Total Admins:{{storeinfermation.totalAdmins}}</div>
+               <div>Total Employees:{{storeinfermation.totalEmployess}}</div>
+               <div>Total Managers:{{storeinfermation.totalManagers}}</div>
+               <div>Total ShiftManagers:{{storeinfermation.totalShiftManagers}}</div>
+               <div>Total Truckers:{{storeinfermation.totalTruckers}}</div>
+           <div>Assign TotalPrinters:{{storeinfermation.totalPrinters}}</div>
+           <div>Assign TotalKiosks:{{storeinfermation.totalKiosk}}</div>
+           <div>Assign TotalBillVallidators:{{storeinfermation.totalBillVallidator}}</div>
+           <div>Assign TotalLocks:{{storeinfermation.totalLocks}}</div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+</section> -->
+<!-- <section class="repots-info">
+  <div class="row my-5">
+    <div class="col-md-4">
+      <div class="card" style="flood-color: rgb(43, 226, 125);" routerLink="/dashboard/charts">
+        <div class="card-header" style="color:blueviolet">
+          Insert Bill
+        </div>
+        <div class="card-body" style="color:rgb(43, 226, 104)">
+         
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-4">
+      <div class="card" style="flood-color: rgb(43, 226, 125);" routerLink="/dashboard/pie-charts">
+        <div class="card-header" style="color:blueviolet">
+          EOD Reports
+        </div>
+        <div class="card-body" style="color:rgb(43, 226, 104)">
+         
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="flood-color: rgb(43, 226, 125);" routerLink="/dashboard/charts">
+        <div class="card-header" style="color:blueviolet">
+          StandBank Reports
+        </div>
+        <div class="card-body" style="color:rgb(43, 226, 104)">
+         
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  <div class="row my-5">
+    <div class="col-md-4">
+      <div class="card" style="flood-color: rgb(43, 226, 125);" routerLink="/dashboard/charts">
+        <div class="card-header" style="color:blueviolet" >
+          Change Request Reports
+        </div>
+        <div class="card-body" style="color:rgb(43, 226, 104)">
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  </section> -->
+    <div class="row ">
+      <div class="col-md-6">
+        <div class="card">
+      
+  <div style="height:350px ;">
+    <canvas id="pie"></canvas>
+  </div>
+ </div> 
+</div>
+</div>
+
+  
+
+
+

@@ -1,0 +1,80 @@
+
+<!-- <ngx-spinner></ngx-spinner> -->
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row text-left">
+            <div class="col-md-8">
+              <div class="content-header" style="font-size: 20px">Update</div>
+              <br>
+              <p class="content-sub-header"> <a routerLink="/dashboard"><span
+                    style="font-size: 15px">Home</span></a>
+                <span style="font-size: 15px">/Role Update</span>
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-body">
+            <div class="form-group">
+              <div class="col-md-12">
+                <form class="form" #addClassForm="ngForm" novalidate>
+                  <div class="form-body">
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="name"><span *ngIf="role.name == undefined || role.name =='' "
+                              style="color: red">*</span>Enter Role Name
+                          </label>
+                          <span class=" text-muted danger" *ngIf="!name.valid && (name.dirty || name.touched)">
+                            is required!
+                          </span>
+                          <input type="text" id="name" class="form-control border-primary" name="name"
+                            [(ngModel)]="role.name" ngModel #name="ngModel" required>
+
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="description"><span *ngIf="role.description == undefined || role.description =='' "
+                              style="color: red">*</span>Description
+                          </label>
+                          <span class=" text-muted danger"
+                            *ngIf="!description.valid && (description.dirty || description.touched)">
+                            is required!
+                          </span>
+                          <input type="text" id="description" class="form-control border-primary" name="description"
+                            [(ngModel)]="role.description" ngModel #description="ngModel" required>
+
+                        </div>
+                      </div>
+
+                    </div>
+     
+                    <div class="form-actions center">
+                            <button type="button" class="btn btn-raised btn-warning mr-1" routerLink="/role/createrole" >
+                                <i class="ft-x"></i> Cancel
+                            </button>
+                            <button type="button" class="btn btn-raised btn-primary" (click)="updateRole()"
+                                routerLink="/role/createrole">
+                                <i class="fa fa-check-square-o"></i> Update
+                            </button>
+                        </div>
+                        </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 

@@ -1,0 +1,264 @@
+<!-- <ngx-spinner></ngx-spinner> -->
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row text-left">
+            <div class="col-md-8">
+              <br>
+              <p class="content-sub-header"> <a routerLink="/dashboard"><span
+                    style="font-size: 15px">Home</span></a>
+                <span style="font-size: 15px">/Assign User To Store</span>
+
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-body">
+            <div class="form-group">
+              <div class="col-md-12">
+                <form class="form" #addClassForm="ngForm" novalidate>
+                  <div class="form-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <fieldset class="form-group">
+                            <label for="storeSelect">Store Name</label>
+                            <select class="form-control border-primary" [(ngModel)]="store" required id="store"
+                              (change)='onStoreSelected(store.storeName)' name="store">
+                              <option>Select Store Name</option>
+                              <option [ngValue]="store" *ngFor="let store of stores">
+                                {{store.storeName}} </option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="address">Store Location
+                          </label>
+
+                          <input type="text" id="address" class="form-control border-primary" name="address"
+                            [(ngModel)]="selectedStore.address" disabled>
+
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <fieldset class="form-group">
+                            <label for="roleSelect">Role Type</label>
+                            <select class="form-control border-primary" [(ngModel)]="role"
+                              (change)='onRoleSelected($any($event.target).value)' required id="role" name="role">
+                              <option value="OWNER">Owner</option>
+                              <option value="STORE_ADMIN">Store Admin</option>
+                              <option value="SUPER_ADMIN">Super Admin</option>
+                              <option value="DIRECTOR_OF_OPERATION">Director Of Operation</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <fieldset class="form-group">
+                          <label for="storeSelect">User Name </label>
+                          <select required [(ngModel)]="employee" id="employee" name="employee"
+                            class="form-control border-primary">
+                            <option>Select User Name</option>
+                            <option [ngValue]="employee" *ngFor="let employee of employees">
+                              {{employee.username}} </option>
+                          </select>
+                        </fieldset>
+
+                      </div>
+
+
+                    </div>
+
+                  </div>
+
+     
+
+                 
+                  
+
+
+                  <div class="form-actions center">
+
+                    <button type="button" class="btn btn-raised btn-primary mr-1"
+                      (click)="assignStore(store.id, employee.id)" [disabled]="!addClassForm.valid">
+                      <i class="fa fa-check-square-o"></i> Assign User To Store
+                    </button>
+                    <button type="reset" class="btn btn-raised btn-warning">
+                      <i class="ft-x"></i> Cancel
+                    </button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="card">
+
+        <div class="card-body">
+          <div class="form-group">
+            <section id="simple">
+
+              <!-- <div class="col-sm-6">
+                <form role="search">
+                  <div class="position-relative has-icon-right">
+                    <input type="text" class="form-control round" placeholder="Search" name="search"
+                      [(ngModel)]="searchText" autocomplete="off">
+                    <div class="form-control-position">
+                      <i class="ft-search"></i>
+                    </div>
+                  </div>
+                </form>
+              </div> -->
+              <br>
+              <div class="row text-left">
+
+                <div class="col-sm-12">
+                  <table class="table table-responsive-md text-center">
+                    <thead>
+                      <tr>
+                        <th>S.no</th>
+                        <th>Store Name</th>
+                        <th>Store Location</th>
+                        <th>User Name</th>
+                 
+                      </tr>
+                    </thead>
+                    <!-- <tbody
+                        *ngFor="let role of roles| slice: (page-1) * pageSize : +((page-1) * pageSize) + +pageSize; index as i"> -->
+                    <tbody *ngFor="let assignstore of assignstores; index as i">
+                      <tr>
+                        <td>{{i+1}}</td>
+                        <td>{{assignstore.storeName}}</td>
+                        <td>{{assignstore.address}}</td>
+                        <td>{{assignstore.userrName}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- <div *ngIf="searchText != ''">
+                    <table class="table table-responsive-md text-center">
+                      <thead>
+                        <tr>
+                          <th>S.no</th>
+                          <th>Class Name</th>
+                          <th>Edit</th>
+                          <th>Status</th>
+
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let class of classes| filter:searchText ; index as i">
+                        <tr>
+                          <td>{{i+1+(page-1) * pageSize}}</td>
+                          <td>{{class.name}}</td>
+                          <td>
+                            <a class="success p-0" data-original-title="" title="" (click)="editClass(class)"
+                              placement="bottom" ngbTooltip="Edit">
+                              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                            </a>
+                            <a class="danger p-0" data-original-title="" title=""
+                                                        (click)="deleteClass(class.id)">
+                                                      
+                                                        <i class="icon-trash font-medium-3 mr-2"></i>
+                                                    </a>
+                          </td>
+                          <td><button type="button" class="btn btn-raised" disabled style="cursor:default"
+                              [ngClass]="{' btn-primary' : class.active,'btn-warning' :!class.active }">
+                              {{ class.active ? 'Active' : 'Inactive' }}
+
+                            </button></td>
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div> -->
+                  <!-- <div class="row">
+                    <div class="col-sm-6">
+                      <div class="formgroup">
+                        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="classes.length"
+                          [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="formgroup">
+                        Items per Page:
+                        <select (change)="handlePageSizeChange($event)">
+                          <option *ngFor="let pageSize of pageSizes" [ngValue]="pageSize">
+                            {{ pageSize }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="modal1" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content1">
+          <div class="modal-header">
+              <h5 class="modal-title" style="color:white">Status</h5>
+          </div>
+          <div class="modal-body" style="color:white">
+              <h2 style="font-size: 20px;">{{dynamicText}}</h2>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class ="btn-info" (click)="closePopup()">
+                 Ok
+              </button>
+              
+          </div>
+      </div>
+  </div>
+</div> 
+
+<div class="modal1" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle1}">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content1">
+          <div class="modal-header">
+              <h5 class="modal-title" style="color:white">Status</h5>
+          </div>
+          <div class="modal-body" style="color:white">
+              <h2 style="font-size: 20px;">{{dynamicText2}}</h2>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class ="btn-info" (click)="closePopup1()">
+                 Ok
+              </button>
+              <button type="button" class ="btn-info" routerLink="/dashboard">
+                Cancel
+             </button>
+          </div>
+      </div>
+  </div>
+</div> 

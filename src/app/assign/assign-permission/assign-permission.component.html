@@ -1,0 +1,185 @@
+<!-- <ngx-spinner></ngx-spinner> -->
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row text-left">
+            <div class="col-md-8">
+              <br>
+              <p class="content-sub-header"> <a routerLink="/dashboard">
+                <span style="font-size: 15px">Home</span></a>
+                <span style="font-size: 15px">/Assign Permissions</span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-body">
+            <div class="form-group">
+              <div class="col-md-12">
+
+                <form class="form" #addClassForm="ngForm" novalidate>
+                  <div class="form-body">
+      
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <fieldset class="form-group">
+                            <label for="roleSelect">Role Type</label>
+                            <select class="form-control border-primary" [(ngModel)]="role" required id="role" name="role">
+                              <option>Select Role Name</option>
+                              <option [ngValue]="role" *ngFor="let role of roles">
+                                {{role.name}} </option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!-- <br>
+                    <label>Module Name</label>
+                    <br>
+                    <br> -->
+
+
+                    <div class="row">
+                      <div class="col-md-6">
+                      <fieldset class="form-group">
+                          <label for="webModule"> <span
+                                  *ngIf="role.webModule == undefined || role.webModule =='' "
+                                  style="color: red">*</span>Module-Web
+                          </label>
+                          <span class=" text-muted danger"
+                              *ngIf="!webModule.valid && (webModule.dirty || webModule.touched)">
+                              is required!
+                          </span>
+                          <ng-select [items]="roleWebModule" name="webModule"
+                              bindLabel="name" placeholder="Select Web-Module" appendTo="body"
+                              multiple="true" [(ngModel)]="role.webModule"
+                              [ngModelOptions]="{standalone: true}"  ngModel
+                              #webModule="ngModel" required>
+                              
+                          </ng-select>
+
+                      </fieldset>
+                  </div>
+
+                  <div class="col-md-6">
+                    <fieldset class="form-group">
+                        <label for="features"> <span
+                                *ngIf="role.features == undefined || role.features =='' "
+                                style="color: red">*</span>Module-Kiosk
+                        </label>
+                        <span class=" text-muted danger"
+                            *ngIf="!features.valid && (features.dirty || features.touched)">
+                            is required!
+                        </span>
+                        <ng-select [items]="roleFeatures" name="features"
+                            bindLabel="name" placeholder="Select Kiosk-Module" appendTo="body"
+                            multiple="true" [(ngModel)]="role.features"
+                            [ngModelOptions]="{standalone: true}"  ngModel
+                            #features="ngModel" required>
+                            
+                        </ng-select>
+
+                    </fieldset>
+                </div>
+                </div>
+              
+
+                    <!-- <div class="row">
+                      <div class="col-md-4">
+                      <div class="form-check">
+                        <input class="form-check-input"  type="checkbox" name="xx" id="xx"
+                         [(ngModel)]="role.webModule"  value="Tennis">
+                        <label class="form-check-label" >
+                          Dashboard
+                        </label>
+                      </div>
+                      </div>
+
+                      <div class="col-md-4">
+                      <div class="form-check">
+                        <input class="form-check-input"  type="checkbox" name="yy" id="yy"
+                         [(ngModel)]="role.webModule"  value="ball">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Role Management
+                        </label>
+                      </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input"  type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            User Management
+                          </label>
+                        </div>
+                        </div>
+                    
+                    </div>
+
+                    <br>
+                 
+
+                    <div class="row">
+                      <div class="col-md-4">
+                      <div class="form-check">
+                        <input class="form-check-input"  type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Kiosk Management
+                        </label>
+                      </div>
+                      </div>
+
+                      <div class="col-md-4">
+                      <div class="form-check">
+                        <input class="form-check-input"  type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Reports
+                        </label>
+                      </div>
+                      </div>
+
+                      <div class="col-md-4">
+                        <div class="form-check">
+                          <input class="form-check-input"  type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            Settings
+                          </label>
+                        </div>
+                        </div>
+                    
+                    </div> -->
+
+                  </div> 
+
+             
+
+
+
+                  <div class="form-actions center">
+
+                    <button type="button" class="btn btn-raised btn-primary mr-1"
+                      (click)="addWebModule()" [disabled]="!addClassForm.valid">
+                      <i class="fa fa-check-square-o"></i> Assign Permissions
+                    </button>
+                    <button type="reset" class="btn btn-raised btn-warning">
+                      <i class="ft-x"></i> Cancel
+                    </button>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

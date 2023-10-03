@@ -1,0 +1,223 @@
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row text-left">
+            <div class="col-md-8">
+              <br>
+              <p class="content-sub-header"> <a routerLink="/dashboard"><span
+                    style="font-size: 15px">Home</span></a>
+                <span style="font-size: 15px">/Reports</span>
+
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-body">
+            <div class="form-group">
+              <div class="col-md-12">
+               <form class="form" #addClassForm="ngForm" novalidate>
+                  <div class="form-body">
+                    <div class="row">
+                      <div class="form-check col-4 col-md-2 col-lg-4">
+                        <input class="form-check-input"  type="radio" name="flexRadioDefault" id="flexRadioDefault1" (click)="changeDivSection('Bills')" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Insert Bills Report
+                        </label>
+                      </div>
+                      <div class="form-check col-4 col-md-2 col-lg-4">
+                        <input class="form-check-input"  type="radio" name="flexRadioDefault" id="flexRadioDefault2" (click)="changeDivSection('EOD')">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          End of the Day Report
+                        </label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      &nbsp;
+                    </div>
+                    <div class="row">
+                      <div class="form-check col-4 col-md-2 col-lg-4">
+                        <input class="form-check-input"  type="radio" name="flexRadioDefault" id="flexRadioDefault3" (click)="changeDivSection('StandBank')">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                          Stand Bank Report
+                        </label>
+                      </div>
+                      <div class="form-check col-4 col-md-2 col-lg-4">
+                        <input class="form-check-input"  type="radio" name="flexRadioDefault" id="flexRadioDefault4" (click)="changeDivSection('ChangeRequest')">
+                        <label class="form-check-label" for="flexRadioDefault4">
+                          Change Request Report
+                        </label>
+                      </div>  
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-md-6" [hidden]="ishideStoreName">
+                        <div class="form-group">
+                          <fieldset class="form-group">
+                            <label for="storeSelect">Store Name</label>
+                            <select class="form-control border-primary" [(ngModel)]="store" required id="store"
+                            (change)='onstoreChange(store.storeName)' name="store">
+                              <option>select storeName</option>
+                              <option [ngValue]="store" *ngFor="let store of stores">
+                                {{store.storeName}} </option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6" [hidden]="ishideStoreLocation">
+                        <div class="form-group">
+                          <label for="address">Store Location
+                          </label>
+
+                          <input type="text" id="address" class="form-control border-primary" name="address"
+                            [(ngModel)]="selectedStore.address" disabled>
+
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+
+                      <div class="col-md-6" [hidden]="ishideUserType">
+                        <div class="form-group">
+                          <fieldset class="form-group">
+                            <label for="roleSelect">User Type</label>
+                            <select class="form-control border-primary" [(ngModel)]="role"
+                            (change)="onRoleChange($any($event.target).value)" required id="role" name="role">
+                              <option value="EMPLOYEE">Employee</option>
+                              <option value="MANAGER">Manager</option>
+                              <option value="SHIFTMANAGER">Shift Manager</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
+                      <div class="col-md-6" [hidden]="ishideUserName">
+                        <fieldset class="form-group">
+                          <label for="storeSelect">User Name </label>
+                          <select required [(ngModel)]="employee" id="employee" name="employee"
+                           (change)="onSelectUserId(employee.id)" class="form-control border-primary">
+                            <option>Select User Name</option>
+                            <option [ngValue]="employee" *ngFor="let employee of employees">
+                              {{employee.username}} </option>
+                          </select>
+                        </fieldset>
+
+                      </div>
+
+
+                    </div>
+                    <div class="col-2 col-md-2 col-lg-2">
+                      &nbsp;
+                  </div>
+                  <div class="row">
+                    <div class="col-6 col-md-4 col-lg-6" [hidden]="ishideFromDate">
+                      <div class="cli_box">
+                          <div class="clabel">
+                              <label for="date">From</label>
+                          </div>
+                          <div class="cinput">
+                              <input type="date" class="form-control input-lg"  id="start_date" (change)="startDateC($event)">                       
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-6" [hidden]="ishideToDate">
+                      <div class="cli_box">
+                          <div class="clabel">
+                              <label for="date">To</label>
+                          </div>
+                          <div class="cinput">
+                              <input type="date" class="form-control input-lg" id="end_date" (change)="endDateC($event)">
+                            
+                          </div>
+                      </div> 
+                  </div>
+                  </div>
+                  
+                  <div class="col-2 col-md-2 col-lg-2">
+                      &nbsp;
+                  </div>
+                  <div class="col-2 col-md-2 col-lg-2">
+                      &nbsp;
+                  </div>
+                  </div>
+                  
+                  <!-- <div class="section_footer text-center">        
+                    <input type="radio" class="radio" value="Insert Bills Report"/>
+                </div> -->
+                <div class="row" [hidden]="isStandBankRadio">
+                  <div class="form-check col-4 col-md-3 col-lg-4">
+                    <input class="form-check-input"  type="radio" name="flexRadioDefault1" id="flexRadioDefault5" (click)="changeDivSection('MAINSAFE')">
+                    <label class="form-check-label" for="flexRadioDefault5">
+                      Main Safe
+                    </label>
+                  </div>
+                  <div class="form-check col-4 col-md-3 col-lg-4">
+                    <input class="form-check-input"  type="radio" name="flexRadioDefault1" id="flexRadioDefault6" (click)="changeDivSection('SHIFTMANAGER')">
+                    <label class="form-check-label" for="flexRadioDefault6">
+                      Shift Manager Safe
+                    </label>
+                  </div> 
+                  <div class="form-check col-4 col-md-3 col-lg-4">
+                    <input class="form-check-input"  type="radio" name="flexRadioDefault1" id="flexRadioDefault6" (click)="changeDivSection('SHIFTMANAGER')">
+                    <label class="form-check-label" for="flexRadioDefault6">
+                      Inter Safe
+                    </label>
+                  </div>  
+
+                </div>
+                
+                  <div class="form-actions center">
+
+                    <button type="button" class="btn btn-raised btn-primary mr-1"
+                      (click)="generateclass()">
+                      <i class="fa fa-check-square-o"></i> Generate Report
+                    </button>
+                    <!-- <button type="button" class="btn btn-raised btn-primary mr-1"
+                    (click)="generatReport()" [disabled]="!addClassForm.valid">
+                    <i class="fa fa-check-square-o"></i> Export to Excel
+                  </button> -->
+                    <button type="reset" class="btn btn-raised btn-warning">
+                      <i class="ft-x"></i> Cancel
+                    </button>
+                  </div>
+                  <!-- <div>
+                    <div>
+                      <tr *ngFor="let storeData of dataStoreResponce">
+                        <th class="row">Store Name:<span>{{storeData.storeName}}</span></th>
+                        <th class="row">Store CorpNo:<span>{{storeData.corpStoreNo}}</span></th>
+                        <th class="row">Serial Number:<span>{{storeData.serialNumber}}</span></th>
+                      </tr>
+
+                    </div>
+                    <table class="table table-striped">
+                      <thead>
+                          <th>currency</th>
+                          <th>Count</th>
+                          <th>Value</th>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let dataR of dataResponce">
+                          <td>{{dataR.currency}}</td>
+                          <td>{{dataR.count}}</td>
+                          <td>{{dataR.value}}</td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </div> -->
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,374 @@
+
+<!-- <ngx-spinner></ngx-spinner> -->
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row text-left">
+            <div class="col-md-8">
+              <div class="content-header" style="font-size: 20px">Kiosk Management</div>
+              <br>
+              <!-- <p class="content-sub-header"> <a routerLink="/dashboard"><span
+                    style="font-size: 15px">Home</span></a>
+
+                <span style="font-size: 15px">/Add Kiosk</span>
+
+              </p> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card">
+        <div class="card-header">
+
+
+
+          <div class="card-body">
+            <div class="form-group">
+              <div class="col-md-12">            
+                <form class="form" #addClassForm="ngForm" novalidate>
+                  <div class="form-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kioskId"><span *ngIf="kiosk.kioskId == undefined || kiosk.kioskId =='' "
+                            style="color: red">*</span>Kiosk Id
+                        </label>
+                        <span class=" text-muted danger" *ngIf="!kioskId.valid && (kioskId.dirty || kioskId.touched)">
+                          is required!
+                        </span>
+                        <input type="number" id="kioskId" class="form-control border-primary" name="kioskId"
+                          [(ngModel)]="kiosk.kioskId" ngModel #kioskId="ngModel" required>
+                       
+                        </div>
+                      </div>
+                        
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="kioskName"><span *ngIf="kiosk.kioskName == undefined || kiosk.kioskName =='' "
+                            style="color: red">*</span>Kiosk Name
+                        </label>
+                        <span class=" text-muted danger" *ngIf="!kioskName.valid && (kioskName.dirty || kioskName.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="kioskName" class="form-control border-primary" name="kioskName"
+                          [(ngModel)]="kiosk.kioskName" ngModel #kioskName="ngModel" required>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="brandName"><span *ngIf="kiosk.brandName == undefined || kiosk.brandName =='' "
+                            style="color: red">*</span>Brand Name
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!brandName.valid && (brandName.dirty || brandName.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="brandName" class="form-control border-primary" name="brandName"
+                          [(ngModel)]="kiosk.brandName" ngModel #brandName="ngModel" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="modelName"><span *ngIf="kiosk.modelName == undefined || kiosk.modelName =='' "
+                            style="color: red">*</span>Model Name
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!modelName.valid && (modelName.dirty || modelName.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="modelName" class="form-control border-primary" name="modelName"
+                          [(ngModel)]="kiosk.modelName" ngModel #modelName="ngModel" required>
+
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="cpu"><span *ngIf="kiosk.cpu == undefined || kiosk.cpu =='' "
+                            style="color: red">*</span>CPU
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!cpu.valid && (cpu.dirty || cpu.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="cpu" class="form-control border-primary" name="cpu"
+                          [(ngModel)]="kiosk.cpu" ngModel #cpu="ngModel" required>
+
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+
+                        <label for="hdd"><span *ngIf="kiosk.hdd == undefined || kiosk.hdd =='' "
+                          style="color: red">*</span>HDD
+                      </label>
+                      <span class=" text-muted danger"
+                        *ngIf="!hdd.valid && (hdd.dirty || hdd.touched)">
+                        is required!
+                      </span>
+                      <input type="text" id="hdd" class="form-control border-primary" name="hdd"
+                        [(ngModel)]="kiosk.hdd" ngModel #hdd="ngModel" required>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="ramMemory"><span *ngIf="kiosk.ramMemory == undefined || kiosk.ramMemory =='' "
+                            style="color: red">*</span>Ram Memory
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!ramMemory.valid && (ramMemory.dirty || ramMemory.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="ramMemory" class="form-control border-primary" name="ramMemory"
+                          [(ngModel)]="kiosk.ramMemory" ngModel #ramMemory="ngModel" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="screenSize"><span *ngIf="kiosk.screenSize == undefined || kiosk.screenSize =='' "
+                            style="color: red">*</span>Screen Size
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!screenSize.valid && (screenSize.dirty || screenSize.touched)">
+                          is required!
+                        </span>
+                        <input type="number" id="screenSize" class="form-control border-primary" name="screenSize"
+                          [(ngModel)]="kiosk.screenSize" ngModel #screenSize="ngModel" required>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="ipAddress"><span *ngIf="kiosk.ipAddress == undefined || kiosk.ipAddress =='' "
+                            style="color: red">*</span>Ip Address
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!ipAddress.valid && (ipAddress.dirty || ipAddress.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="ipAddress" class="form-control border-primary" name="ipAddress"
+                          [(ngModel)]="kiosk.ipAddress" ngModel #ipAddress="ngModel" required>
+
+                        </div>
+                      </div>
+
+                    
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="macAddress"><span *ngIf="kiosk.macAddress == undefined || kiosk.macAddress =='' "
+                            style="color: red">*</span>Mac Address
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!macAddress.valid && (macAddress.dirty || macAddress.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="macAddress" class="form-control border-primary" name="macAddress"
+                          [(ngModel)]="kiosk.macAddress" ngModel #macAddress="ngModel" required>
+                        </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="d-block">Status</label>
+                          <div class="input-group">
+                            <div class="custom-control custom-radio d-inline-block float-left">
+                              <input type="radio" checked id="active" name="active" class="custom-control-input"
+                                [value]=true [(ngModel)]="kiosk.active">
+                              <label class="custom-control-label" for="active">Active</label>
+                            </div>
+                            <div class="custom-control custom-radio d-inline-block float-left ml-1">
+                              <input type="radio" id="inactive" name="inactive" class="custom-control-input"
+                                [value]=false [(ngModel)]="kiosk.active">
+                              <label class="custom-control-label" for="inactive">In Active</label>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  <!--    <div class="col-md-6">
+                        <fieldset class="form-group">
+                          <label for="storeSelect">Select Store Id</label>
+                          <select required [(ngModel)]="role" id="role" name="role" class="form-control border-primary">
+                            <option>Select Store Id</option>
+                            <option [ngValue]="role" *ngFor="let role of roles">
+                              {{role.name}} </option>
+                          </select>
+                        </fieldset>
+
+                      </div>-->
+<!--                   
+                  </div> 
+             
+                  <div class="form-actions center">
+
+                    <button type="button" class="btn btn-raised btn-primary mr-1" (click)="AddKiosk(kiosk)"
+                      [disabled]="!addClassForm.valid">
+                      <i class="fa fa-check-square-o"></i> Create
+                    </button>
+                    <button type="reset" class="btn btn-raised btn-warning">
+                      <i class="ft-x"></i> Cancel
+                    </button>
+
+                   </div>
+                 </form>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div> -->
+   </div>
+ </div>
+</section>
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="card">
+
+        <div class="card-body">
+          <div class="form-group">
+            <section id="simple">
+
+              <!-- <div class="col-sm-6">
+                <form role="search">
+                  <div class="position-relative has-icon-right">
+                    <input type="text" class="form-control round" placeholder="Search" name="search"
+                      [(ngModel)]="searchText" autocomplete="off">
+                    <div class="form-control-position">
+                      <i class="ft-search"></i>
+                    </div>
+                  </div>
+                </form>
+              </div> -->
+              <br>
+              <div class="row text-left">
+
+                <div class="col-sm-12">
+                  <table class="table table-responsive-md text-center">
+                    <thead>
+                      <tr>
+                        <!-- <th>S.no</th> -->
+                        <th>Kiosk Id</th>
+                        <th>Kiosk Name</th>
+                        <th>Brand Name</th>
+                        <th>Model Name</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <!-- <tbody
+                        *ngFor="let role of roles| slice: (page-1) * pageSize : +((page-1) * pageSize) + +pageSize; index as i"> -->
+                    <tbody *ngFor="let kiosk of kiosks ;index as i">
+                      <tr>
+                        <!-- <td>{{i+1}}</td> -->
+                        <td>{{kiosk.kioskId}}</td>
+                        <td>{{kiosk.kioskName}}</td>
+                        <td>{{kiosk.brandName}}</td>
+                        <td>{{kiosk.modelName}}</td>
+
+                        <td>
+                          <button type="button" class="btn btn-raised" disabled style="cursor:default"
+                            [ngClass]="{' btn-primary' : kiosk.active,'btn-warning' :!kiosk.active }">
+                            {{ kiosk.active ? 'Active' : 'Inactive' }}
+
+                          </button>
+                        </td>
+                        <td>
+                          <a class="success p-0" data-original-title="" title="" (click)="editAddKiosk(kiosk)"
+                            placement="bottom" ngbTooltip="Edit">
+                            <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                          </a>
+                          <a class="danger p-0" data-original-title="" title=""
+                                                      (click)="kioskdelete(kiosk)">
+                                                    
+                                                      <i class="icon-trash font-medium-3 mr-2"></i>
+                                                  </a>
+                        </td>
+                       
+
+
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- <div *ngIf="searchText != ''">
+                    <table class="table table-responsive-md text-center">
+                      <thead>
+                        <tr>
+                          <th>S.no</th>
+                          <th>Class Name</th>
+                          <th>Edit</th>
+                          <th>Status</th>
+
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let class of classes| filter:searchText ; index as i">
+                        <tr>
+                          <td>{{i+1+(page-1) * pageSize}}</td>
+                          <td>{{class.name}}</td>
+                          <td>
+                            <a class="success p-0" data-original-title="" title="" (click)="editClass(class)"
+                              placement="bottom" ngbTooltip="Edit">
+                              <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                            </a>
+                            <a class="danger p-0" data-original-title="" title=""
+                                                        (click)="deleteClass(class.id)">
+                                                      
+                                                        <i class="icon-trash font-medium-3 mr-2"></i>
+                                                    </a>
+                          </td>
+                          <td><button type="button" class="btn btn-raised" disabled style="cursor:default"
+                              [ngClass]="{' btn-primary' : class.active,'btn-warning' :!class.active }">
+                              {{ class.active ? 'Active' : 'Inactive' }}
+
+                            </button></td>
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div> -->
+                  <!-- <div class="row">
+                    <div class="col-sm-6">
+                      <div class="formgroup">
+                        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="classes.length"
+                          [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="formgroup">
+                        Items per Page:
+                        <select (change)="handlePageSizeChange($event)">
+                          <option *ngFor="let pageSize of pageSizes" [ngValue]="pageSize">
+                            {{ pageSize }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

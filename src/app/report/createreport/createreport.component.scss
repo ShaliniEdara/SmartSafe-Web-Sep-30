@@ -1,0 +1,45 @@
+.employeereport_content .section_body
+{
+    margin-bottom: 40px;
+}
+.employeereport_content .cinput input
+{
+    height: 32px;
+    margin-right: 12px;
+    border: 0px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    background-color: #ffffff;
+}
+.employeereport_content .cinput input
+{
+    width: 100%;
+    float: left;
+}
+.employeereport_content .cli_box
+{
+    height: 70px;
+}
+.employeereport_content .section_footer
+{
+    background-color: #2c3051;
+    left: 0px;
+    padding: 0px 60px;
+    width: 100%;
+    bottom:100px;
+}
+label.form-check-label{
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 0px;
+}
+.form-check {
+    position: relative;
+    display: block;
+    padding-left: 6.25rem;
+}
+.form-check.col-4.col-md-2.col-lg-4{
+    flex: 13 11 38.333333%;
+    max-width: 50.333333%;
+}
+

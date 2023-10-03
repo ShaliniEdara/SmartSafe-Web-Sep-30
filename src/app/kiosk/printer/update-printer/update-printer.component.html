@@ -1,0 +1,171 @@
+<!-- <ngx-spinner></ngx-spinner> -->
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row text-left">
+            <div class="col-md-8">
+              <div class="content-header" style="font-size: 20px">Kiosk Management</div>
+              <br>
+              <p class="content-sub-header"> <a routerLink="/dashboard"><span
+                    style="font-size: 15px">Home</span></a>
+                <span style="font-size: 15px">/Update Printer</span>
+
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+
+
+          <div class="card-body">
+            <div class="form-group">
+              <div class="col-md-12">
+                <form class="form" #addClassForm="ngForm" novalidate>
+                  <div class="form-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="printerNo"><span *ngIf="printer.printerNo == undefined || printer.printerNo =='' "
+                            style="color: red">*</span>Printer No
+                        </label>
+                        <span class=" text-muted danger" *ngIf="!printerNo.valid && (printerNo.dirty || printerNo.touched)">
+                          is required!
+                        </span>
+                        <input type="number" id="printerNo" class="form-control border-primary" name="printerNo"
+                          [(ngModel)]="printer.printerNo" ngModel #printerNo="ngModel" required>
+                       
+                        </div>
+                      </div>
+                        
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="printerName"><span *ngIf="printer.printerName == undefined || printer.printerName =='' "
+                            style="color: red">*</span>Printer Name
+                        </label>
+                        <span class=" text-muted danger" *ngIf="!printerName.valid && (printerName.dirty || printerName.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="printerName" class="form-control border-primary" name="printerName"
+                          [(ngModel)]="printer.printerName" ngModel #printerName="ngModel" required readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="brandName"><span *ngIf="printer.brandName == undefined || printer.brandName =='' "
+                            style="color: red">*</span>Brand Name
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!brandName.valid && (brandName.dirty || brandName.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="brandName" class="form-control border-primary" name="brandName"
+                          [(ngModel)]="printer.brandName" ngModel #brandName="ngModel" required>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="modelName"><span *ngIf="printer.modelName == undefined || printer.modelName =='' "
+                            style="color: red">*</span>Model Name
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!modelName.valid && (modelName.dirty || modelName.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="modelName" class="form-control border-primary" name="modelName"
+                          [(ngModel)]="printer.modelName" ngModel #modelName="ngModel" required>
+
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="machineType"><span *ngIf="printer.machineType == undefined || printer.machineType =='' "
+                            style="color: red">*</span>Machine Type
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!machineType.valid && (machineType.dirty || machineType.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="machineType" class="form-control border-primary" name="machineType"
+                          [(ngModel)]="printer.machineType" ngModel #machineType="ngModel" required>
+
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+
+                        <label for="printCapacity"><span *ngIf="printer.printCapacity == undefined || printer.printCapacity =='' "
+                          style="color: red">*</span>Print Capacity
+                      </label>
+                      <span class=" text-muted danger"
+                        *ngIf="!printCapacity.valid && (printCapacity.dirty || printCapacity.touched)">
+                        is required!
+                      </span>
+                      <input type="text" id="printCapacity" class="form-control border-primary" name="printCapacity"
+                        [(ngModel)]="printer.printCapacity" ngModel #printCapacity="ngModel" required>
+
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="d-block">Status</label>
+                          <div class="input-group">
+                            <div class="custom-control custom-radio d-inline-block float-left">
+                              <input type="radio" checked id="active" name="active" class="custom-control-input"
+                                [value]=true [(ngModel)]="printer.active">
+                              <label class="custom-control-label" for="active">Active</label>
+                            </div>
+                            <div class="custom-control custom-radio d-inline-block float-left ml-1">
+                              <input type="radio" id="inactive" name="inactive" class="custom-control-input"
+                                [value]=false [(ngModel)]="printer.active">
+                              <label class="custom-control-label" for="inactive">In Active</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  <!--    <div class="col-md-6">
+                        <fieldset class="form-group">
+                          <label for="storeSelect">Select Store Id</label>
+                          <select required [(ngModel)]="role" id="role" name="role" class="form-control border-primary">
+                            <option>Select Store Id</option>
+                            <option [ngValue]="role" *ngFor="let role of roles">
+                              {{role.name}} </option>
+                          </select>
+                        </fieldset>
+
+                      </div>-->
+                  
+                  </div> 
+             
+                  <div class="form-actions center">
+
+                    <button type="button" class="btn btn-raised btn-primary mr-1" (click)="updatePrinter(printer.id)"
+                    routerLink="/kiosk/printer">
+                    <i class="fa fa-check-square-o"></i> Update
+                    </button>
+
+                    <button type="button" class="btn btn-raised btn-warning " routerLink="/kiosk/printer">
+                      <i class="ft-x"></i> Cancel
+                  </button>
+                
+                   </div>
+                 </form>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</section>

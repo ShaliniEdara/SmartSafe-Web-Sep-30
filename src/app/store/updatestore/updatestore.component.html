@@ -1,0 +1,142 @@
+<!-- <ngx-spinner></ngx-spinner> -->
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row text-left">
+            <div class="col-md-8">
+              <div class="content-header" style="font-size: 20px">Store Management</div>
+              <br>
+              <p class="content-sub-header"> <a routerLink="/dashboard"><span
+                    style="font-size: 15px">Home</span></a>
+                <span style="font-size: 15px">/update Store</span>
+
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+         
+
+          <div class="card-body">
+            <div class="form-group">
+              <div class="col-md-12">
+
+              
+                <form class="form" #addClassForm="ngForm" novalidate>
+                  <div class="form-body">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label for="storeName">Enter Store Name</label>
+                                      <input type="text" id="storeName" class="form-control border-primary"
+                                          name="storeName" [(ngModel)]="storeInfoRequest.storeName" readonly>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label for="corpStoreNo">Enter Corp StoreNo</label>
+                                      <input type="number" id="corpStoreNo" class="form-control border-primary"
+                                          name="corpStoreNo" [(ngModel)]="storeInfoRequest.corpStoreNo" readonly>
+                                  </div>
+                              </div>
+                          </div>
+
+                          
+                           <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label for="serialNumber">Store Serial Number</label>
+                                      <input class="form-control border-primary" type="number" id="serialNumber"
+                                          [(ngModel)]="storeInfoRequest.serialNumber" name="serialNumber" readonly>
+                                  </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label>Store Location</label>
+                                      <input matInput class="form-control border-primary" id="address" type="text"
+                                          name="address" [(ngModel)]="storeInfoRequest.address">
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="bankName">Bank Name</label>
+                                    <input class="form-control border-primary" type="text" id="bankName"
+                                        [(ngModel)]="storeInfoRequest.bankName" name="bankName">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Account Number</label>
+                                    <input matInput class="form-control border-primary" id="accountNumber" type="number"
+                                        name="accountNumber" [(ngModel)]="storeInfoRequest.accountNumber" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label for="minimumBalance">Minimum Balance</label>
+                                  <input class="form-control border-primary" type="number" id="minimumBalance"
+                                      [(ngModel)]="storeInfoRequest.minimumBalance" name="minimumBalance">
+                              </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="d-block">Status</label>
+                              <div class="input-group">
+                                <div class="custom-control custom-radio d-inline-block float-left">
+                                  <input type="radio" checked id="active" name="active" class="custom-control-input"
+                                    [value]=true [(ngModel)]="storeInfoRequest.status">
+                                  <label class="custom-control-label" for="active">Active</label>
+                                </div>
+                                <div class="custom-control custom-radio d-inline-block float-left ml-1">
+                                  <input type="radio" id="inactive" name="inactive" class="custom-control-input"
+                                    [value]=false [(ngModel)]="storeInfoRequest.status">
+                                  <label class="custom-control-label" for="inactive">In Active</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div> 
+
+                          </div>
+                        
+                      
+
+
+
+
+                      </div>
+                 
+                      <div class="form-actions center">
+                          <button type="button" class="btn btn-raised btn-primary mr-1" (click)="updateStore(storeInfoRequest.id)"
+                              routerLink="/store/createstore">
+                              <i class="fa fa-check-square-o"></i> Update
+                          </button>
+                          <button type="button" class="btn btn-raised btn-warning mr-1" routerLink="/store/createstore">
+                              <i class="ft-x"></i> Cancel
+                          </button>
+                        
+                      </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
