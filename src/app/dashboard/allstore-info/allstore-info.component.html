@@ -5,12 +5,30 @@
   <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
   <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+      .bcontent {
+          margin-top: 10px;
+          
+      }
+      .text-muted{
+        margin-bottom: 10px;
+
+      }
+  </style>
+
+
   
   <div class="row">
     <div class="container-fluid">
       <div class="row text-left">
         <div class="col-md-8">
-          <div class="content-header" style="font-size: 20px">All Stores  StandBank Information</div>
+          <div class="content-header" style="font-size: 20px">All Stores Information</div>
           <br>
           <p class="content-sub-header"> <a routerLink="/dashboard"><span
                 style="font-size: 15px">Home</span></a>
@@ -20,7 +38,7 @@
         </div>
 
         <div class="col-xl-4 col-sm-6 col-12">
-          <div class="card " style="min-height:100px" style="text-align: right;">
+          <div class="card " style="height:100px;text-align:right;">
             <div class="card-content">
               <div class="card-body ">
                 <div class="media d-flex">
@@ -29,7 +47,7 @@
                     <span> Total StandBank Balance</span>
                   </div> 
                   <div class="media-body text-right" style="color:blue">
-                    <h3>${{dashboard?.shiftManagerBalance}}</h3>
+                    <h3>$</h3>
                   </div>
                 </div>
               </div>
@@ -37,13 +55,12 @@
           </div>
         </div>
         </div>
-  
       </div>
     </div>
   
 
   
-<div>
+ <!-- <div>
   <div class="row">
   <div class="col-xl-4 col-sm-6 col-12" *ngFor="let store of stores">
     <div class="card " style="min-height:300px">
@@ -52,32 +69,57 @@
           <div class="media d-flex">
              <div class="media-body text-left" style="color:blue">
              <span style=color:red>{{ store.storeName }} </span><br><br>
-
              <span>StandBank Balance:${{dashboard?.stateBankBalance}}</span><br><br>
              <span>MainSafe Balance:${{dashboard?.mainSafeBalance}}</span><br><br>
              <span >shiftManager Balance:${{dashboard?.shiftManagerBalance}} </span><br><br>
-
-             <div class="flex-row">
-              <div class="coin-base">
-                
-                <h6>0.041 ETH</h6>
-              
-              <div class="time-left">
-                
-                3 days left
-              </div>
-            </div>
-          </div>
-            
-            
-          <a href="#" class="card-link">link</a>
-          <a href="#" class="card-link">Second link</a>
+             <a href="#" class="card-link">Location</a>
+             <a href="#" class="card-link">Map</a>
           </div>
           
         </div>
       </div>
     </div>
   </div>
+</div>
+</div>  -->
+
+<div>
+ <div class="row">
+<!-- <div class="container bcontent"> -->
+  <div class="col-xl-4 col-sm-6 col-12" *ngFor="let store of stores">
+  <div class="card" style="width:350px;" >
+      <div class="card-header  text-muted1" style="color: blue;">
+        <a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">{{ store.storeName }}</a>
+      </div>
+      <div class="card-body">
+        <div class="row">
+        <div class="col-xl-6 col-sm-6 col-12">
+          <p class="card-text" style="font-size:small;">StandBank Balance </p>
+          <p>${{dashboard?.stateBankBalance}}</p>
+          </div>
+          <div class="col-xl-6 col-sm-6 col-12">
+          <p class="card-text"  style="text-align: right;font-size:small;">Today Insert Bills </p>
+          <p class="card-text"  style="text-align: right;">${{dashboard?.totalEodBillsAmount}} </p>
+        </div>
+        </div>
+        </div>
+      <div class="card-footer text-muted">
+        <!-- <a href="#" class="card-link" style="text-align: left;">Location</a>
+        <a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">Map</a> -->
+        <div class="row">
+          <div class="col-xl-6 col-sm-6 col-12">
+          <a href="#" class="card-link" style="text-align: left;">Location</a>
+            </div>
+            <div class="col-xl-6 col-sm-6 col-12">
+            <a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">Map</a>
+            </div>
+          </div>
+
+
+
+      </div>
+  </div>
+</div>
 </div>
 </div>
 

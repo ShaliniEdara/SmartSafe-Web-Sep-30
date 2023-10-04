@@ -6,9 +6,9 @@
 export const environment = {
   production: false,
 
- smartSafeAPIUrl: 'http://localhost:9002'
+ //smartSafeAPIUrl: 'http://localhost:9002'
  
- //smartSafeAPIUrl :'http://smartersafeiicorpjavaspringbootmicro-env.eba-hx3uz3y2.us-east-1.elasticbeanstalk.com'
+ smartSafeAPIUrl :'http://smartersafeiicorpjavaspringbootmicro-env.eba-hx3uz3y2.us-east-1.elasticbeanstalk.com'
     
 };
 

@@ -55,6 +55,7 @@ export class AllstoreInfoComponent implements OnInit {
   reports(storenames){
     console.log(storenames);
     localStorage.setItem('storename', storenames);
+    localStorage.setItem('storename', storenames);
     this.router.navigate(["/dashboard/charts-reports"])
     return this.http.get<StoreInfoRequest[]>(environment.smartSafeAPIUrl + '/storenames'+'/0');
 
