@@ -8,8 +8,6 @@
     display: none;
     overflow: hidden;
     outline: 0px;
-
-    
 }
 .modal-content1 {
     position: relative;
@@ -17,27 +15,27 @@
     flex-direction: column;
     width: 100%;
     pointer-events: auto;
-    background-color: #8aa2a5;
+    background-color: white;
     background-clip: padding-box;
     border-radius: 10px;
     padding: 20px;
     outline: 0;
-    font: size 5px; 
     //background-clip: padding-box;
-    //border: 1px solid black;
+    border: 1px solid rgb(16, 156, 138);
    
 }
 .modal-footer {
-    background-color: #8aa2a5;
-    background-clip: padding-box; 
+    background-color: white;
+    background-clip: padding-box;
+    
 }  
 .modal-header{
     
-        background-color: #8aa2a5;
+        background-color: white;
         background-clip: padding-box;
         
 }
-.btn-info { background: #886f02; border: none; border-radius: 3px; font-size: 18px; padding: 10px 20px; }
+.btn-info { background: rgb(12, 172, 145); border: none; border-radius: 3px; font-size: 18px; padding: 10px 20px; }
 
 .btn-info a, .btn-info:hover {
   color: white;
@@ -45,6 +43,6 @@
 
 .btn-info:hover{
 
-background: #af9008;
+background: rgb(4, 131, 114);
 
 transition: 0.5s }
