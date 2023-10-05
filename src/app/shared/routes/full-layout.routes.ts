@@ -34,6 +34,11 @@ export const Full_ROUTES: Routes = [
   },
 
   {
+    path: 'cropmaster',
+    loadChildren: () => import('../../cropmaster/cropmaster.module').then(m => m.CropmasterModule)
+  },
+
+  {
     path: 'store',
     loadChildren: () => import('../../store/store.module').then(m => m.StoreModule)
   },

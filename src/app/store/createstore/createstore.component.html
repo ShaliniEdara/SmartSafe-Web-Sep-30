@@ -30,6 +30,22 @@
                 <form class="form" #addClassForm="ngForm" novalidate>
                   <div class="form-body">
                     <div class="row">
+
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <fieldset class="form-group">
+                            <label for="CropSelect">Crop Name</label>
+                            <select class="form-control border-primary" [(ngModel)]="user.role" required id="role" name="role">
+                              <option value="OWNER"></option>
+                              <option value="OWNER">R&R Business Ventures Inc</option>
+                              <option value="STORE_ADMIN">Taxes Bagles Inc</option>
+                              <option value="SUPER_ADMIN">Inbrahim Investments Corporation</option>
+                              <option value="DIRECTOR_OF_OPERATION">Gulf Coast Jack</option>
+                              <option value="DIRECTOR_OF_OPERATION">Bueno Restaurent Group</option>
+                            </select>
+                          </fieldset>
+                        </div>
+                      </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="storeName"><span *ngIf="storeInfoRequest.storeName == undefined || storeInfoRequest.storeName =='' "
@@ -71,8 +87,7 @@
                         </div>
                       </div>
 
-                    </div>
-                    <div class="row">
+                    
                       <!-- <div class="col-md-4">
                         <div class="form-group">
                           <label for="address"><span *ngIf="storeInfoRequest.address == undefined || storeInfoRequest.address =='' "
@@ -117,7 +132,8 @@
 
                         </div>
                       </div>
-
+                    </div>
+                    <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="stateName"><span *ngIf="storeInfoRequest.stateName == undefined || storeInfoRequest.stateName =='' "
@@ -175,11 +191,11 @@
                           <input type="number" id="accountNumber" class="form-control border-primary" name="accountNumber"
                             [(ngModel)]="storeInfoRequest.accountNumber" ngModel #accountNumber="ngModel" required   maxlength="15">
 
-                        </div>
+                       
                       </div>
                       </div>
-                      <div class="row">
-                        <div class="col-md-6">
+                      
+                        <div class="col-md-4">
                           <div class="form-group">
                             <label for="minimumBalance"><span *ngIf="storeInfoRequest.minimumBalance == undefined || storeInfoRequest.minimumBalance =='' "
                                 style="color: red">*</span>Stand Bank amount
@@ -195,7 +211,7 @@
                         </div>
                         
                         
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
                             <label for="startTime"><span *ngIf="storeInfoRequest.startTime == undefined || storeInfoRequest.startTime =='' "
                                 style="color: red">*</span>EOD Processing StartTime 
@@ -245,11 +261,6 @@
                       </div> 
 
                     </div>
-
-               
-
-
-
 
                   </div>
                   <div class="form-actions center">
