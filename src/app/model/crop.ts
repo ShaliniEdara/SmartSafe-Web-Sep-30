@@ -1,10 +1,11 @@
 export class Crop{
     id:number;
 
-	cropname:string;
+	cropName:string;
 
 	description:string;
 	
-	active:boolean;
+	status:boolean;
+     active: boolean;
 
 }

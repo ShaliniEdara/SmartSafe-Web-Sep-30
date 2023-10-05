@@ -28,14 +28,14 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="cropname" class="form-control-label"><span *ngIf="crop.cropname == undefined || crop.cropname =='' "
+                          <label for="cropName" class="form-control-label"><span *ngIf="crop.cropName == undefined || crop.cropName =='' "
                               style="color: red">*</span>Enter Crop Name
                           </label>
-                          <span class=" text-muted danger" *ngIf="!cropname.valid && crop(name.dirty || cropname.touched)">
+                          <span class=" text-muted danger" *ngIf="!cropName.valid && (cropName.dirty || cropName.touched)">
                             is required!
                           </span>
-                          <input type="text" id="cropname" class="form-control border-primary" name="cropname"
-                            [(ngModel)]="crop.cropname" ngModel #cropname="ngModel" required>
+                          <input type="text" id="cropName" class="form-control border-primary" name="cropName"
+                            [(ngModel)]="crop.cropName" ngModel #cropName="ngModel" required>
 
                         </div>
                       </div>
@@ -122,11 +122,11 @@
                       </thead>
                       <!-- <tbody
                           *ngFor="let role of roles| slice: (page-1) * pageSize : +((page-1) * pageSize) + +pageSize; index as i"> -->
-                      <tbody *ngFor="let role of roles;index as i">
+                      <tbody *ngFor="let crop of crops;index as i">
                         <tr>
                           <!-- <td>{{i+1+(page-1) * pageSize}}</td> -->
                           <td>{{i+1}}</td>
-                          <td>{{crop.cropname}}</td>
+                          <td>{{crop.cropName}}</td>
                         
                       
                             <td>{{crop.description}}</td>
