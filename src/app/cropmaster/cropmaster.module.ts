@@ -6,9 +6,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { CropmasterRoutingModule } from './cropmaster-routing.module';
 import { CreatecropmasterComponent } from './createcropmaster/createcropmaster.component';
+import { UpdatecropmasterComponent } from './updatecropmaster/updatecropmaster.component';
 
 @NgModule({
-  declarations: [CreatecropmasterComponent],
+  declarations: [CreatecropmasterComponent, UpdatecropmasterComponent],
   imports: [
     CommonModule,
     CropmasterRoutingModule,

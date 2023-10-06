@@ -85,7 +85,7 @@ export class CreatecropmasterComponent implements OnInit {
 
     localStorage.setItem('editCrop', JSON.stringify(crop));
    
-   this.router.navigate(["/kiosk/update-printer"]);
+   this.router.navigate(["/cropmaster/updatecrop"]);
 
  }
 
