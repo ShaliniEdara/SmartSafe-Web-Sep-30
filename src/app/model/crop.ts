@@ -8,4 +8,6 @@ export class Crop{
 	status:boolean;
      active: boolean;
 
+	 storeInfo:string;
+
 }
