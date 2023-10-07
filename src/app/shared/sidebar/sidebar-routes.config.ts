@@ -4,7 +4,7 @@ import { RouteInfo } from './sidebar.metadata';
 export const ROUTES: RouteInfo[] = [
      { path: '/dashboard', title: 'Dashboard ', icon: 'ft-home', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [], },  
     { path: '/role/createrole', title: 'Role Management ', icon: 'ft-star', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-    { path: '/cropmaster/createcrop', title: 'Crop Master ', icon: 'ft-user', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    { path: '/cropmaster/createcrop', title: 'Corp Master ', icon: 'ft-user', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     { path: '/store/createstore', title: 'Store Management ', icon: 'ft-shopping-cart', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     { path: '/user-management', title: 'User Management ', icon: 'ft-user', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     { path: '', title: 'kiosk Management ', icon: 'ft-user', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false, 
