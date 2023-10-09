@@ -28,7 +28,7 @@
 	  <div class="container-fluid">
 		<div class="row text-left">
 		  <div class="col-md-8">
-			<div class="content-header" style="font-size: 20px">All Stores Information</div>
+			<div class="content-header" style="font-size: 20px">All Corporates Information</div>
 			<br>
 			<p class="content-sub-header"> <a routerLink="/dashboard"><span
 				  style="font-size: 15px">Home</span></a>
@@ -86,11 +86,23 @@
   <div>
    <div class="row">
   <!-- <div class="container bcontent"> -->
-	<div class="col-xl-4 col-sm-6 col-12" *ngFor="let store of stores">
+	<div class="col-xl-4 col-sm-6 col-12" *ngFor="let crop of crops">
 	<div class="card" style="width:350px;" >
 		<div class="card-header  text-muted1" style="color: blue;">
-		  <a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">{{ store.storeName }}</a>
+		  <!-- <a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">{{ crop.cropName }}</a>
+		  <p>{{crop.streetName}}</p>
+		  <p>{{crop.cityName}}</p>
+		  <p>{{crop.zipCode}},</p>
+		  <p>{{crop.stateName}}</p> -->
 		</div>
+		<address>
+			<strong><a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">{{ crop.cropName }}</a></strong><br>
+			{{crop.streetName}}<br>
+			{{crop.cityName}}<br>
+			{{crop.zipCode}}<br>
+			{{crop.stateName}}
+			<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
+		  </address>
 		<div class="card-body">
 		  <div class="row">
 		  <div class="col-xl-6 col-sm-6 col-12">
@@ -102,6 +114,7 @@
 			<p class="card-text"  style="text-align: right;">${{dashboard?.totalEodBillsAmount}} </p>
 		  </div>
 		  </div>
+		  <p>No of Locations:</p>
 		  </div>
 		<div class="card-footer text-muted">
 		  <!-- <a href="#" class="card-link" style="text-align: left;">Location</a>

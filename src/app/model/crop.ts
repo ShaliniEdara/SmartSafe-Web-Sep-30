@@ -6,8 +6,14 @@ export class Crop{
 	description:string;
 	
 	status:boolean;
-     active: boolean;
+     
+  active: boolean;
+	 streetName:string;
 
-	 storeInfo:string;
+	  cityName:string;
+
+	  zipCode:string;
+
+	  stateName:string
 
 }
