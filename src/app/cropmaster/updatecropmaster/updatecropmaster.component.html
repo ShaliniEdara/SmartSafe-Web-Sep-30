@@ -1,0 +1,98 @@
+<section id="image">
+  <div class=row>
+    <div class=" col-md-12 ">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row text-left">
+            <div class="col-md-8">
+              <div class="content-header" style="font-size: 20px">Create</div>
+              <br>
+              <p class="content-sub-header"> <a routerLink='/dashboard'><span
+                    style="font-size: 15px">Home</span></a>
+                <span style="font-size: 15px">/Crop</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+          
+      <div class="card">
+        <div class="card-header">
+          <div class="card-body">
+            <div class="form-group">
+              <div class="col-md-12">
+                <form class="form" #addClassForm="ngForm" novalidate>
+                  <div class="form-body">
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="cropName" class="form-control-label"><span *ngIf="crop.cropName == undefined || crop.cropName =='' "
+                              style="color: red">*</span>Enter Corp Name
+                          </label>
+                          <span class=" text-muted danger" *ngIf="!cropName.valid && (cropName.dirty || cropName.touched)">
+                            is required!
+                          </span>
+                          <input type="text" id="cropName" class="form-control border-primary" name="cropName"
+                            [(ngModel)]="crop.cropName" ngModel #cropName="ngModel" required>
+
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="description"><span *ngIf="crop.description == undefined || crop.description =='' "
+                              style="color: red">*</span>Description
+                          </label>
+                          <span class=" text-muted danger"
+                            *ngIf="!description.valid && (description.dirty || description.touched)">
+                            is required!
+                          </span>
+                          <input type="text" id="description" class="form-control border-primary" name="description"
+                            [(ngModel)]="crop.description" ngModel #description="ngModel" required>
+
+                        </div>
+                      </div>
+
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label class="d-block">Status</label>
+                        <div class="input-group">
+                          <div class="custom-control custom-radio d-inline-block float-left">
+                            <input type="radio" checked id="active" name="active" class="custom-control-input"
+                              [value]=true [(ngModel)]="crop.status">
+                            <label class="custom-control-label" for="active">Active</label>
+                          </div>
+                          <div class="custom-control custom-radio d-inline-block float-left ml-1">
+                            <input type="radio" id="inactive" name="inactive" class="custom-control-input"
+                              [value]=false [(ngModel)]="crop.status">
+                            <label class="custom-control-label" for="inactive">In Active</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div> 
+                  
+                  </div>
+                  <div class="form-actions center">
+
+                    <button type="button" class="btn btn-raised btn-primary mr-1" (click)="updateCrop(crop.id)"
+                    routerLink="/cropmaster/createcrop">
+                    <i class="fa fa-check-square-o"></i> Update
+                    </button>
+
+                    <button type="button" class="btn btn-raised btn-warning " routerLink="/cropmaster/createcrop">
+                      <i class="ft-x"></i> Cancel
+                  </button>
+                
+                   </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>
+   </div>
+   </section>
