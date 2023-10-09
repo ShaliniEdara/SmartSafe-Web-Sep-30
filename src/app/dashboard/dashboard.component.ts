@@ -8,6 +8,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { StoreInfoRequest } from 'app/model/storeInfoRequest';
 import { NGXToastrService } from 'app/service/toastr.service';
 import { ConsoleService } from '@ng-select/ng-select/ng-select/console.service';
+import { Crop } from 'app/model/crop';
 
 @Component({
   selector: 'app-dashboard',
@@ -35,6 +36,10 @@ export class DashboardComponent implements OnInit {
   api=new Application();
   status=new Status();
   apis: Application[];
+
+  crop =new Crop();
+  crops: Crop[];
+
   constructor(private http: HttpClient,private router:Router,private spinner:NgxSpinnerService,private changeDetectorRefs: ChangeDetectorRef) {
 
    }
@@ -64,6 +69,21 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(["/dashboard/allstoreinfo"])
 
   }
+
+
+  getCropInfoList(){
+    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/crop/all/');
+  
+  }
+  getAllCropInfoList(){
+    return this.getCropInfoList().
+      subscribe((data) => {
+        console.log(data);
+        this.crops = data;
+        
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
   
     
   
@@ -72,6 +92,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getAllAssignedStoresList();
+    this.getAllCropInfoList();
 
    // this.spinner.show();
    // this.getAllEndPointsList();

@@ -8,4 +8,12 @@ export class Crop{
 	status:boolean;
      active: boolean;
 
+	 streetName:string;
+
+	  cityName:string;
+
+	  zipCode:string;
+
+	  stateName:string;
+
 }
