@@ -6,29 +6,98 @@
     <br>
     <p class="content-sub-header"> <a routerLink="/dashboard"><span
         style="font-size: 15px">Home</span></a>
-       <!-- <span style="font-size: 15px">/{{storename}}</span>  -->
+      <!-- <span style="font-size: 15px">/{{storename}}</span> -->
 
     </p>
     </div>
 
     <div class="col-xl-4 col-sm-6 col-12">
-    <div class="card " style="height:100px;text-align:right;">
-      <div class="card-content">
-      <div class="card-body ">
-        <div class="media d-flex">
-         <div class="media-body text-left" style="color:blue">
-        <!-- <i class="icon-pie-chart warning font-large-2 float-left"></i> -->
-          <span> Total StandBank Balance</span>
-        </div> 
-        <div class="media-body text-right" style="color:blue">
-          <h3>$</h3>
-        </div>
-        </div>
+    <div class="card" style="width: 24rem;">
+    <div class="twoCard">
+      <div class="cardPart cardPart1">All Locations–All Safce
+      <p style="color: blue;">$23,500</p>
       </div>
+      <div class="cardPart cardPart2">All Locations-Today
+      <p style="color: blue;">$15,100</p>
       </div>
-    </div>
+      </div> 
     </div>
     </div>
   </div>
+</div>
+</div>
+
+
+<!--This is Seach bar code-->
+
+<div class="row">
+  <div class="col-md-4"> <!-- Increase the column size to 8 -->
+   <div class="input-group">
+     <div class="input-group-prepend">
+       <span class="input-group-text">
+         <i class="fa fa-search"></i>
+       </span>
+     </div>
+     <input type="text" class="form-control" placeholder="Search...">
+     <div class="input-group-append">
+       <button class="btn btn-outline-secondary" (click)="onSearch()">clear</button>
+     </div>
+   </div>
+ </div>
+  <div class="col-md-8"> <!-- Add a new column with size 4 for the title -->
+    <!-- <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">
+          <i class="fa fa-search"></i>
+        </span>
+      </div>
+      <input type="text" class="form-control" placeholder="Search...">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" (click)="onSearch()">clear</button>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+<!-- This is the Main card of details of crop-->
+
+<div class="row">
+  <div class="col-md-12">
+<div class="col-xl-12 col-sm-6 col-08">
+  <div class="card" style="width: 1000px;">
+    <div class="twoCard">
+      <div class="cardPart cardPart3">
+        <div class="card" >
+        <div  class="twoCard">
+          <div class="cardPart cardPart5">
+            <a [routerLink]="" (click)="cropinfo()">View profile</a>
+          </div>
+          <div class="cardPart cardPart6">
+            <p>Location Address</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="cardPart cardPart4">
+        <div class="threeCard">
+        <div class="cardPart cardPart7">
+          <p>Amount in safe</p>
+        </div>
+        <div class="cardPart cardPart8">
+          <p>Last business day</p>
+        </div>
+        <div class="cardPart cardPart9">
+          <p>	Last Pick up amount: </p>
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+
   </div>
+ 
+</div>
+</div>
+</div>
 
