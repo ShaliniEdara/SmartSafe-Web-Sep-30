@@ -60,57 +60,33 @@
 	
   
 	
-   <!-- <div>
-	<div class="row">
-	<div class="col-xl-4 col-sm-6 col-12" *ngFor="let store of stores">
-	  <div class="card " style="min-height:300px">
-		<div class="card-content">
-		  <div class="card-body ">
-			<div class="media d-flex">
-			   <div class="media-body text-left" style="color:blue">
-			   <span style=color:red>{{ store.storeName }} </span><br><br>
-			   <span>StandBank Balance:${{dashboard?.stateBankBalance}}</span><br><br>
-			   <span>MainSafe Balance:${{dashboard?.mainSafeBalance}}</span><br><br>
-			   <span >shiftManager Balance:${{dashboard?.shiftManagerBalance}} </span><br><br>
-			   <a href="#" class="card-link">Location</a>
-			   <a href="#" class="card-link">Map</a>
-			</div>
-			
-		  </div>
-		</div>
-	  </div>
-	</div>
-  </div>
-  </div>  -->
-  
+   
   <div>
    <div class="row">
   <!-- <div class="container bcontent"> -->
 	<div class="col-xl-4 col-sm-6 col-12" *ngFor="let crop of crops">
 	<div class="card" style="width:350px;" >
 		<div class="card-header  text-muted1" style="color: blue;">
-		  <!-- <a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">{{ crop.cropName }}</a>
-		  <p>{{crop.streetName}}</p>
-		  <p>{{crop.cityName}}</p>
-		  <p>{{crop.zipCode}},</p>
-		  <p>{{crop.stateName}}</p> -->
+			<address>
+				<!-- <strong><a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/corpInfo">{{ crop.cropName }}</a></strong><br> -->
+				<strong><a [routerLink]="" (click)="cropinfo(crop.cropName)">{{ crop.cropName }}</a></strong><br>
+				{{crop.streetName}}<br>
+				{{crop.cityName}}<br>
+				{{crop.stateName}}<br>
+				{{crop.zipCode}}
+				<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
+			  </address>
+		  
 		</div>
-		<address>
-			<strong><a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">{{ crop.cropName }}</a></strong><br>
-			{{crop.streetName}}<br>
-			{{crop.cityName}}<br>
-			{{crop.zipCode}}<br>
-			{{crop.stateName}}
-			<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
-		  </address>
+		
 		<div class="card-body">
 		  <div class="row">
 		  <div class="col-xl-6 col-sm-6 col-12">
-			<p class="card-text" style="font-size:small;">StandBank Balance </p>
+			<p class="card-text" style="font-size:small;">Amount in safe </p>
 			<p>${{dashboard?.stateBankBalance}}</p>
 			</div>
 			<div class="col-xl-6 col-sm-6 col-12">
-			<p class="card-text"  style="text-align: right;font-size:small;">Today Insert Bills </p>
+			<p class="card-text"  style="text-align: right;font-size:small;">Current business day </p>
 			<p class="card-text"  style="text-align: right;">${{dashboard?.totalEodBillsAmount}} </p>
 		  </div>
 		  </div>
@@ -135,6 +111,77 @@
   </div>
   </div>
   </div>
+
+
+
+
+
+
+
+
+<!--not used for reference only-->
+
+  <!-- <div class="row">
+	<div class="container-fluid">
+	  <div class="row text-left">
+		<div class="col-md-8">
+		  <div class="content-header" style="font-size: 20px">All Stores</div>
+		  <br>
+		   <p class="content-sub-header"> <a routerLink="/dashboard"><span
+				style="font-size: 15px">Home</span></a>
+			<span style="font-size: 15px">/Add Store</span>
+  
+		  </p> 
+		</div>
+  
+	  </div>
+	</div>
+  </div>
+  <ngx-spinner></ngx-spinner>
+  
+  
+  <section id="minimal-statistics-bg">
+  <div class="row">
+  
+	  <div class="col-xl-4 col-lg-6 col-md-6 col-12" >
+		  <div class="card gradient-pomegranate">
+			  <div class="card-content" >
+				  <div class="card-body pt-2 pb-0">
+					  <div class="media" >
+						  <div class="media-body white text-center">
+								  <button type="button" class="btn btn-raised " style="color:white"
+									(click)="allstoreinfo()">
+								  <span>AllStore-Info </span></button>
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+  
+	
+  
+	  <div class="col-xl-4 col-lg-6 col-md-6 col-12" *ngFor="let store of stores">
+		  <div class="card gradient-pomegranate">
+			  <div class="card-content" >
+				  <div class="card-body pt-2 pb-0">
+					  <div class="media" >
+						  <div class="media-body white text-center">
+								  <button type="button" class="btn btn-raised " style="color:white"
+									(click)="reports(store.storeName)">
+								  <span>{{ store.storeName }} </span></button>
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+  
+	</div>
+  
+  </section> -->
+  
+  
   
   
   
