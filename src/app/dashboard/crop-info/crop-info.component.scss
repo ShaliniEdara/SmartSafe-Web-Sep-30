@@ -1,0 +1,21 @@
+.twoCard {
+    display: flex;
+    }
+    .threeCard {
+        display: flex;
+        }
+    .cardPart {
+    width: 100%;
+    padding: 10px;
+    }
+    .cardPart2 {
+    border-left: 1px solid #ccc;
+    }
+    .cardPart3 {
+        border-left: 1px solid #ccc;
+        width: 30%;
+    }
+    .cardPart4 {
+        border-left: 1px solid #ccc;
+        width: 70%;
+    }

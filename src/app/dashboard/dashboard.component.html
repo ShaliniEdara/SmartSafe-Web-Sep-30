@@ -8,6 +8,8 @@
   
   
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -38,24 +40,17 @@
 		  </div>
   
 		  <div class="col-xl-4 col-sm-6 col-12">
-			<div class="card " style="height:100px;text-align:right;">
-			  <div class="card-content">
-				<div class="card-body ">
-				  <div class="media d-flex">
-					 <div class="media-body text-left" style="color:blue">
-					<!-- <i class="icon-pie-chart warning font-large-2 float-left"></i> -->
-					  <span> Total StandBank Balance</span>
-					</div> 
-					<div class="media-body text-right" style="color:blue">
-					  <h3>$</h3>
-					</div>
-				  </div>
-				</div>
+			<div class="card" style="width: 24rem;">
+			<div class="twoCard">
+			  <div class="cardPart cardPart1">All Locations–All Safce
+				<p style="color: blue;">$23,500</p>
+			  </div>
+			  <div class="cardPart cardPart2">All Locations-Today
+				<p style="color: blue;">$15,100</p>
+			  </div>
 			  </div>
 			</div>
-		  </div>
-		  </div>
-		</div>
+			</div>
 	  </div>
 	
   
@@ -66,7 +61,7 @@
   <!-- <div class="container bcontent"> -->
 	<div class="col-xl-4 col-sm-6 col-12" *ngFor="let crop of crops">
 	<div class="card" style="width:350px;" >
-		<div class="card-header  text-muted1" style="color: blue;">
+		<div class="card-header  text-muted1" >
 			<address>
 				<!-- <strong><a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/corpInfo">{{ crop.cropName }}</a></strong><br> -->
 				<strong><a [routerLink]="" (click)="cropinfo(crop.cropName)">{{ crop.cropName }}</a></strong><br>

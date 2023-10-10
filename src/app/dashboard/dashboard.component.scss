@@ -2,3 +2,14 @@
 body {
     background-color: rgb(241, 240, 247);
   }
+
+  .twoCard {
+    display: flex;
+    }
+    .cardPart {
+    width: 100%;
+    padding: 10px;
+    }
+    .cardPart2 {
+    border-left: 1px solid #ccc;
+    }

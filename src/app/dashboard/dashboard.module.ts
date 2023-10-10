@@ -17,7 +17,8 @@ import { CropInfoComponent } from './crop-info/crop-info.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    
   ]
 })
 export class DashboardModule { }
