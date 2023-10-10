@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewStatusComponent } from './view-status.component';
+import { CropInfoComponent } from './crop-info.component';
 
-describe('ViewStatusComponent', () => {
-  let component: ViewStatusComponent;
-  let fixture: ComponentFixture<ViewStatusComponent>;
+describe('CropInfoComponent', () => {
+  let component: CropInfoComponent;
+  let fixture: ComponentFixture<CropInfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewStatusComponent ]
+      declarations: [ CropInfoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewStatusComponent);
+    fixture = TestBed.createComponent(CropInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

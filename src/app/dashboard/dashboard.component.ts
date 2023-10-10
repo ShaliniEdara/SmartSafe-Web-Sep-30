@@ -84,6 +84,16 @@ export class DashboardComponent implements OnInit {
         this.changeDetectorRefs.markForCheck();
       });
   }
+
+  cropinfo(cropNames){
+    
+    console.log(cropNames);
+    localStorage.setItem('cropName', cropNames);
+    this.router.navigate(["/dashboard/corpInfo"]);
+    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/cropNames');
+    
+
+  }
   
     
   

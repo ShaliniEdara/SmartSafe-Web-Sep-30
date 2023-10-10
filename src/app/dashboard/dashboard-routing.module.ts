@@ -3,10 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'app/shared/auth/auth-guard.service';
 import { ChartsReportsComponent } from './charts-reports/charts-reports.component';
 import { DashboardComponent } from './dashboard.component';
-import { MychartComponent } from './mychart/mychart.component';
-import { PieChartsComponent } from './pie-charts/pie-charts.component';
-import { ViewStatusComponent } from './view-status/view-status.component';
 import { AllstoreInfoComponent } from './allstore-info/allstore-info.component';
+import { CropInfoComponent } from './crop-info/crop-info.component';
 
 const routes: Routes = [
   {
@@ -27,22 +25,22 @@ const routes: Routes = [
   },
   
 
-  {
-    path: 'view-status',
-     component: ViewStatusComponent,
-    data: {
-      title: 'view-status'
-    },
+  // {
+  //   path: 'view-status',
+  //    component: ViewStatusComponent,
+  //   data: {
+  //     title: 'view-status'
+  //   },
     
-  },
-  {
-    path: 'charts',
-     component: MychartComponent,
-    data: {
-      title: 'mychart'
-    },
+  // },
+  // {
+  //   path: 'charts',
+  //    component: MychartComponent,
+  //   data: {
+  //     title: 'mychart'
+  //   },
     
-  },
+  // },
   {
     path: 'charts-reports',
      component: ChartsReportsComponent,
@@ -51,19 +49,20 @@ const routes: Routes = [
     },
     
   },
-  {
-    path: 'pie-charts',
-     component: PieChartsComponent,
-    data: {
-      title: 'pie-chart'
-    },
-    
-  },
+  
   {
     path: 'allstoreinfo',
      component: AllstoreInfoComponent,
     data: {
       title: 'allstoreinfo'
+    },
+    
+  },
+  {
+    path: 'corpInfo',
+     component: CropInfoComponent,
+    data: {
+      title: 'corpInfo'
     },
     
   },
