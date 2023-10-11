@@ -35,11 +35,11 @@
                         <div class="form-group">
                           <fieldset class="form-group">
                             <label for="CropSelect">Corp Name</label>
-                            <select class="form-control border-primary" [(ngModel)]="storeInfoRequest.crop" required id="crop"
-                              (change)='onCorpSelected(crop.corpName)' name="crop">
+                            <select class="form-control border-primary" [(ngModel)]="storeInfoRequest.corp" required id="corp"
+                              (change)='onCorpSelected(corp.corpName)' name="corp">
                               <option>Select Corp Name</option>
-                              <option [ngValue]="crop" *ngFor="let crop of crops">
-                                {{crop.corpName}} </option>
+                              <option [ngValue]="corp" *ngFor="let corp of corps">
+                                {{corp.corpName}} </option>
                             </select>
                           </fieldset>
                         </div>

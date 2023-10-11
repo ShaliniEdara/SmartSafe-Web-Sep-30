@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Corp } from 'app/model/corp';
 import { Crop } from 'app/model/crop';
 import { Role } from 'app/model/role';
 import { StoreInfoRequest } from 'app/model/storeInfoRequest';
@@ -145,17 +146,17 @@ storedelete(storeInfoRequest: StoreInfoRequest) {
 }
 }
 
-crop=new Crop();
-  crops:Crop[];
+corp=new Corp();
+  corps:Corp[];
 getCropInfoList(){
-  return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/crop/all/');
+  return this.http.get<Corp[]>(environment.smartSafeAPIUrl + '/corp/all/');
 
 }
 getAllCropInfoList(){
   return this.getCropInfoList().
     subscribe((data) => {
       console.log(data);
-      this.crops = data;
+      this.corps = data;
       
       this.changeDetectorRefs.markForCheck();
     });
