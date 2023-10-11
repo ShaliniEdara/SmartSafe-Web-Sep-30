@@ -45,7 +45,7 @@ export class CreatecropmasterComponent implements OnInit {
 
 
   getCropList() {
-    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/corp/all');
+    return this.http.get<Corp[]>(environment.smartSafeAPIUrl + '/corp/all');
   }
   getAllCropList() {
     return this.getCropList().
@@ -56,7 +56,7 @@ export class CreatecropmasterComponent implements OnInit {
       });
   }
   addCrop() {
-    this.http.post<Crop>(environment.smartSafeAPIUrl + '/corp/', this.corp).subscribe(
+    this.http.post<Corp>(environment.smartSafeAPIUrl + '/corp/', this.corp).subscribe(
       res => {
         console.log(res);
         //event.confirm.resolve(event.newData);

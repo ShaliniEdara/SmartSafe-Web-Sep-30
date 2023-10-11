@@ -197,18 +197,18 @@
                       </thead>
                       <!-- <tbody
                           *ngFor="let role of roles| slice: (page-1) * pageSize : +((page-1) * pageSize) + +pageSize; index as i"> -->
-                      <tbody *ngFor="let corp of corp;index as i">
+                      <tbody *ngFor="let corp of corps;index as i">
                         <tr>
                           <!-- <td>{{i+1+(page-1) * pageSize}}</td> -->
                           <td>{{i+1}}</td>
                           <td>{{corp.corpName}}</td>
-                        
-                      
                             <td>{{corp.description}}</td>
-                            <td>{{corp.streetName}}</td>
                             <td>{{corp.cityName}}</td>
-                            <td>{{corp.stateName}}</td>
                             <td>{{corp.zipCode}}</td>
+                            <td>{{corp.stateName}}</td>
+                            <td>{{corp.streetName}}</td>
+                            
+                            
 
                             <td>
                                                       <a class="success p-0" data-original-title="" title=""
