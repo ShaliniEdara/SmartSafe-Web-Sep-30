@@ -72,7 +72,7 @@ export class DashboardComponent implements OnInit {
 
 
   getCropInfoList(){
-    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/crop/all/');
+    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/corp/all/');
   
   }
   getAllCropInfoList(){
@@ -87,10 +87,10 @@ export class DashboardComponent implements OnInit {
 
   cropinfo(cropNames){
     
-    console.log(cropNames);
+    console.log("--------cropes names are------"+cropNames);
     localStorage.setItem('cropName', cropNames);
     this.router.navigate(["/dashboard/corpInfo"]);
-    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/cropNames');
+    //return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/cropNames');
     
 
   }

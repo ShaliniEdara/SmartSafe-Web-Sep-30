@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Crop } from 'app/model/crop';
 import { Role } from 'app/model/role';
 import { StoreInfoRequest } from 'app/model/storeInfoRequest';
 import { NGXToastrService } from 'app/service/toastr.service';
@@ -144,9 +145,36 @@ storedelete(storeInfoRequest: StoreInfoRequest) {
 }
 }
 
+crop=new Crop();
+  crops:Crop[];
+getCropInfoList(){
+  return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/crop/all/');
+
+}
+getAllCropInfoList(){
+  return this.getCropInfoList().
+    subscribe((data) => {
+      console.log(data);
+      this.crops = data;
+      
+      this.changeDetectorRefs.markForCheck();
+    });
+}
+
+onCorpSelected(cropName:string){
+  // this.getAllCropInfoList();
+
+}
+
+
+
+
 
   ngOnInit() {
-    this.getAllStoresList();
+    this.getAllCropInfoList();
+    this.getAllStoresList()
+    
+    // this.router.navigate(["/dashboard/charts-reports"]);
   }
 
   displayStyle1 = "none";

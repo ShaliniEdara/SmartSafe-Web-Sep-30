@@ -4,6 +4,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Corp } from 'app/model/corp';
 import { Crop } from 'app/model/crop';
 import { Role } from 'app/model/role';
 
@@ -36,26 +37,26 @@ export class CreatecropmasterComponent implements OnInit {
     private changeDetectorRefs: ChangeDetectorRef) {
   }
 
-  crop = new Crop();
-  crops: Crop[];
+  corp = new Corp();
+  corps: Corp[];
 
   displayStyle = "none";
    dynamicText:string;
 
 
   getCropList() {
-    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/crop/all');
+    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/corp/all');
   }
   getAllCropList() {
     return this.getCropList().
       subscribe((data) => {
         console.log(data);
-        this.crops = data;
+        this.corps = data;
         this.changeDetectorRefs.markForCheck();
       });
   }
   addCrop() {
-    this.http.post<Crop>(environment.smartSafeAPIUrl + '/crop/', this.crop).subscribe(
+    this.http.post<Crop>(environment.smartSafeAPIUrl + '/corp/', this.corp).subscribe(
       res => {
         console.log(res);
         //event.confirm.resolve(event.newData);
@@ -76,23 +77,23 @@ export class CreatecropmasterComponent implements OnInit {
         //this.service.typeWarning();
         
       });
-    console.log(JSON.stringify(this.crop));
+    console.log(JSON.stringify(this.corp));
     this.getAllCropList();
     
   }
 
-  editCrop(crop: Crop ) {
+  editCrop(corp: Corp ) {
 
-    localStorage.setItem('editCrop', JSON.stringify(crop));
+    localStorage.setItem('editCrop', JSON.stringify(corp));
    
    this.router.navigate(["/cropmaster/updatecrop"]);
 
  }
 
-  deleteCrop(crop: Crop) {
+  deleteCrop(corp: Corp) {
     console.log('coming into delete')
   
-    if(crop.active){
+    if(corp.active){
       console.log('coming inside active true')
       Swal.fire({
         title: 'You cannot delete a active printer ',
@@ -103,7 +104,7 @@ export class CreatecropmasterComponent implements OnInit {
        
       })
     }
-    if(!(crop.active)){
+    if(!(corp.active)){
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -118,7 +119,7 @@ export class CreatecropmasterComponent implements OnInit {
   
       if (result.value) {
         console.log("hello");
-        this.http.delete<Crop>(environment.smartSafeAPIUrl + "/crop/" + crop.id, this.httpOptions).subscribe(
+        this.http.delete<Crop>(environment.smartSafeAPIUrl + "/corp/" + corp.id, this.httpOptions).subscribe(
           res => {
             console.log(res);
             //event.confirm.resolve(event.newData);

@@ -41,7 +41,7 @@ export class StoreInfoRequest {
 
 	  userIds:number;
 
-	  crop:string;
+	  crop:any;
 
 
 
