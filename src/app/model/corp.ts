@@ -1,4 +1,4 @@
-export class Crop{
+export class Corp{
     id:number;
 
 	corpName:string;

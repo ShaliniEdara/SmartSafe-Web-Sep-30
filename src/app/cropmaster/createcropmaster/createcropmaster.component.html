@@ -28,20 +28,20 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="cropName" class="form-control-label"><span *ngIf="crop.cropName == undefined || crop.cropName =='' "
+                          <label for="cropName" class="form-control-label"><span *ngIf="corp.corpName == undefined || corp.corpName =='' "
                               style="color: red">*</span>Enter Corp Name
                           </label>
-                          <span class=" text-muted danger" *ngIf="!cropName.valid && (cropName.dirty || cropName.touched)">
+                          <span class=" text-muted danger" *ngIf="!corpName.valid && (corpName.dirty || corpName.touched)">
                             is required!
                           </span>
-                          <input type="text" id="cropName" class="form-control border-primary" name="cropName"
-                            [(ngModel)]="crop.cropName" ngModel #cropName="ngModel" required>
+                          <input type="text" id="corpName" class="form-control border-primary" name="corpName"
+                            [(ngModel)]="corp.corpName" ngModel #corpName="ngModel" required>
 
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="description"><span *ngIf="crop.description == undefined || crop.description =='' "
+                          <label for="description"><span *ngIf="corp.description == undefined || corp.description =='' "
                               style="color: red">*</span>Description
                           </label>
                           <span class=" text-muted danger"
@@ -49,7 +49,7 @@
                             is required!
                           </span>
                           <input type="text" id="description" class="form-control border-primary" name="description"
-                            [(ngModel)]="crop.description" ngModel #description="ngModel" required>
+                            [(ngModel)]="corp.description" ngModel #description="ngModel" required>
 
                         </div>
                       </div>
@@ -59,7 +59,7 @@
                     <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="streetName"><span *ngIf="crop.streetName == undefined || crop.streetName =='' "
+                        <label for="streetName"><span *ngIf="corp.streetName == undefined || corp.streetName =='' "
                             style="color: red">*</span>Street Name
                         </label>
                         <span class=" text-muted danger"
@@ -67,14 +67,14 @@
                           is required!
                         </span>
                         <input type="text" id="streetName" class="form-control border-primary" name="streetName"
-                          [(ngModel)]="crop.streetName" ngModel #streetName="ngModel" required>
+                          [(ngModel)]="corp.streetName" ngModel #streetName="ngModel" required>
 
                       </div>
                     </div>
 
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="cityName"><span *ngIf="crop.cityName == undefined || crop.cityName =='' "
+                        <label for="cityName"><span *ngIf="corp.cityName == undefined || corp.cityName =='' "
                             style="color: red">*</span>City Name
                         </label>
                         <span class=" text-muted danger"
@@ -82,7 +82,7 @@
                           is required!
                         </span>
                         <input type="text" id="cityName" class="form-control border-primary" name="cityName"
-                          [(ngModel)]="crop.cityName" ngModel #cityName="ngModel" required>
+                          [(ngModel)]="corp.cityName" ngModel #cityName="ngModel" required>
 
                       </div>
                     </div>
@@ -91,7 +91,7 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="stateName"><span *ngIf="crop.stateName == undefined || crop.stateName =='' "
+                        <label for="stateName"><span *ngIf="corp.stateName == undefined || corp.stateName =='' "
                             style="color: red">*</span>State Name
                         </label>
                         <span class=" text-muted danger"
@@ -99,14 +99,14 @@
                           is required!
                         </span>
                         <input type="text" id="stateName" class="form-control border-primary" name="stateName"
-                          [(ngModel)]="crop.stateName" ngModel #stateName="ngModel" required>
+                          [(ngModel)]="corp.stateName" ngModel #stateName="ngModel" required>
 
                       </div>
                     </div>
 
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="zipCode"><span *ngIf="crop.zipCode == undefined || crop.zipCode =='' "
+                        <label for="zipCode"><span *ngIf="corp.zipCode == undefined || corp.zipCode =='' "
                             style="color: red">*</span>Zip Code
                         </label>
                         <span class=" text-muted danger"
@@ -114,7 +114,7 @@
                           is required!
                         </span>
                         <input type="text" id="zipCode" class="form-control border-primary" name="zipCode"
-                          [(ngModel)]="crop.zipCode" ngModel #zipCode="ngModel" required>
+                          [(ngModel)]="corp.zipCode" ngModel #zipCode="ngModel" required>
 
                       </div>
                     </div>
@@ -132,12 +132,12 @@
                         <div class="input-group">
                           <div class="custom-control custom-radio d-inline-block float-left">
                             <input type="radio" checked id="active" name="active" class="custom-control-input"
-                              [value]=true [(ngModel)]="crop.status">
+                              [value]=true [(ngModel)]="corp.status">
                             <label class="custom-control-label" for="active">Active</label>
                           </div>
                           <div class="custom-control custom-radio d-inline-block float-left ml-1">
                             <input type="radio" id="inactive" name="inactive" class="custom-control-input"
-                              [value]=false [(ngModel)]="crop.status">
+                              [value]=false [(ngModel)]="corp.status">
                             <label class="custom-control-label" for="inactive">In Active</label>
                           </div>
                         </div>
@@ -185,7 +185,7 @@
                       <thead>
                         <tr>
                           <th>S.no</th>
-                          <th>Crop Name</th>
+                          <th>Corp Name</th>
                           <th>Description</th>
                           <th>Street Name</th>
                           <th>City Name</th>
@@ -197,26 +197,26 @@
                       </thead>
                       <!-- <tbody
                           *ngFor="let role of roles| slice: (page-1) * pageSize : +((page-1) * pageSize) + +pageSize; index as i"> -->
-                      <tbody *ngFor="let crop of crops;index as i">
+                      <tbody *ngFor="let corp of corp;index as i">
                         <tr>
                           <!-- <td>{{i+1+(page-1) * pageSize}}</td> -->
                           <td>{{i+1}}</td>
-                          <td>{{crop.cropName}}</td>
+                          <td>{{corp.corpName}}</td>
                         
                       
-                            <td>{{crop.description}}</td>
-                            <td>{{crop.streetName}}</td>
-                            <td>{{crop.cityName}}</td>
-                            <td>{{crop.stateName}}</td>
-                            <td>{{crop.zipCode}}</td>
+                            <td>{{corp.description}}</td>
+                            <td>{{corp.streetName}}</td>
+                            <td>{{corp.cityName}}</td>
+                            <td>{{corp.stateName}}</td>
+                            <td>{{corp.zipCode}}</td>
 
                             <td>
                                                       <a class="success p-0" data-original-title="" title=""
-                                                          (click)="editCrop(crop)" placement="bottom" ngbTooltip="Edit">
+                                                          (click)="editCrop(corp)" placement="bottom" ngbTooltip="Edit">
                                                           <i class="ft-edit-2 font-medium-3 mr-2"></i>
                                                       </a>
                                                       <a class="danger p-0" data-original-title="" title=""
-                                                          (click)="deleteCrop(crop)" placement="bottom" ngbTooltip="Delete">
+                                                          (click)="deleteCrop(corp)" placement="bottom" ngbTooltip="Delete">
                                                           <i class="icon-trash font-medium-3 mr-2"></i>
                                                       </a>
                                                   </td>
