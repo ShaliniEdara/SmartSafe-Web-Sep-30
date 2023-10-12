@@ -174,7 +174,6 @@ onCorpSelected(cropName:string){
   ngOnInit() {
     this.getAllCropInfoList();
     this.getAllStoresList()
-    
     // this.router.navigate(["/dashboard/charts-reports"]);
   }
 
