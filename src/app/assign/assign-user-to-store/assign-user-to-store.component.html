@@ -44,8 +44,8 @@
                           <label for="address">Store Location
                           </label>
 
-                          <input type="text" id="address" class="form-control border-primary" name="address"
-                            [(ngModel)]="selectedStore.address" disabled>
+                          <input type="text" id="stateName" class="form-control border-primary" name="stateName"
+                            [(ngModel)]="selectedStore.stateName" disabled>
 
                         </div>
                       </div>
@@ -62,6 +62,7 @@
                               <option value="OWNER">Owner</option>
                               <option value="STORE_ADMIN">Store Admin</option>
                               <option value="SUPER_ADMIN">Super Admin</option>
+                              <option value="manager">Manager</option>
                               <option value="DIRECTOR_OF_OPERATION">Director Of Operation</option>
                             </select>
                           </fieldset>
@@ -227,10 +228,10 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content1">
           <div class="modal-header">
-              <h5 class="modal-title" style="color:black">Status</h5>
+              <h5 class="modal-title" style="color:white">Status</h5>
           </div>
-          <div class="modal-body" style="color:black">
-              <h2 style="font-size: 20px;">{{dynamicText}}</h2>
+          <div class="modal-body" style="color:white">
+              <h2 style="font-size: 20px;"><strong>{{dynamicText}}</strong></h2>
           </div>
           <div class="modal-footer">
               <button type="button" class ="btn btn-raised btn-primary mr-1" (click)="closePopup()">
@@ -246,10 +247,10 @@
   <div class="modal-dialog" role="document">
       <div class="modal-content1">
           <div class="modal-header">
-              <h5 class="modal-title" style="color:black">Status</h5>
+              <h5 class="modal-title" style="color:white">Status</h5>
           </div>
-          <div class="modal-body" style="color:black">
-              <h2 style="font-size: 20px;">{{dynamicText2}}</h2>
+          <div class="modal-body" style="color:white">
+              <h2 style="font-size: 20px;"><strong>{{dynamicText2}}</strong></h2>
           </div>
           <div class="modal-footer">
               <button type="button" class ="btn btn-raised btn-primary mr-1" (click)="closePopup1()">
