@@ -30,13 +30,13 @@
                 <form class="form" #addClassForm="ngForm" novalidate>
                   <div class="form-body">
                           <div class="row">
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                               <div class="form-group">
                                   <label for="storeName">Enter Corp Name</label>
                                   <input type="text" id="corpName" class="form-control border-primary"
                                       name="corpName" [(ngModel)]="storeInfoRequest.corpName" readonly>
                               </div>
-                          </div>
+                          </div> -->
                               <div class="col-md-6">
                                   <div class="form-group">
                                       <label for="storeName">Enter Location Name</label>
@@ -62,8 +62,8 @@
                                           [(ngModel)]="storeInfoRequest.serialNumber" name="serialNumber" readonly>
                                   </div>
                               </div>
-                            </div>
-                            <div class="row">
+                            
+                            
                               <div class="col-md-6">
                                   <div class="form-group">
                                       <label>Street Name</label>
@@ -71,6 +71,8 @@
                                           name="streetName" [(ngModel)]="storeInfoRequest.streetName">
                                   </div>
                               </div>
+                            </div>
+                            <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
                                     <label>City Name</label>
@@ -92,9 +94,8 @@
                                     name="zipCode" [(ngModel)]="storeInfoRequest.zipCode">
                             </div>
                         </div>
-                          </div>
+                          
 
-                          <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="bankName">Bank Name</label>
@@ -102,7 +103,8 @@
                                         [(ngModel)]="storeInfoRequest.bankName" name="bankName">
                                 </div>
                             </div>
-
+                          </div>
+                          <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Account Number</label>
@@ -110,10 +112,10 @@
                                         name="accountNumber" [(ngModel)]="storeInfoRequest.accountNumber" readonly>
                                 </div>
                             </div>
-                        </div>
+                        
 
 
-                        <div class="row">
+                        
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label for="minimumBalance">Minimum Balance</label>
@@ -121,7 +123,8 @@
                                       [(ngModel)]="storeInfoRequest.minimumBalance" name="minimumBalance">
                               </div>
                           </div>
-
+                        </div>
+                        <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="d-block">Status</label>

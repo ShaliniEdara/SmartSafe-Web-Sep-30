@@ -35,7 +35,7 @@
                         <div class="form-group">
                           <fieldset class="form-group">
                             <label for="CropSelect">Corp Name</label>
-                            <select class="form-control border-primary" [(ngModel)]="storeInfoRequest.corp" required id="corp"
+                            <select class="form-control border-primary" [(ngModel)]="corp" required id="corp"
                               (change)='onCorpSelected(corp.corpName)' name="corp">
                               <option>Select Corp Name</option>
                               <option [ngValue]="corp" *ngFor="let corp of corps">
@@ -263,7 +263,7 @@
                   </div>
                   <div class="form-actions center">
 
-                    <button type="button" class="btn btn-raised btn-primary mr-1" (click)="addStore()"
+                    <button type="button" class="btn btn-raised btn-primary mr-1" (click)="addStore(corp.id)"
                       [disabled]="!addClassForm.valid">
                       <i class="fa fa-check-square-o"></i> Create
                     </button>

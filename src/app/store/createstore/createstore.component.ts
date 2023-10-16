@@ -54,9 +54,9 @@ export class CreatestoreComponent implements OnInit {
         this.changeDetectorRefs.markForCheck();
       });
   }
-  addStore() {
-   
-    this.http.post<StoreInfoRequest>(environment.smartSafeAPIUrl + '/storeinfo/', this.storeInfoRequest).subscribe(
+  addStore(id:any) {
+  console.log("xyz.........",id) 
+    this.http.post<StoreInfoRequest>(environment.smartSafeAPIUrl + '/storeinfo/'+id, this.storeInfoRequest).subscribe(
       res => {
         console.log(res);
         //event.confirm.resolve(event.newData);
