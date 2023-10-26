@@ -59,17 +59,17 @@
   <div>
    <div class="row">
   <!-- <div class="container bcontent"> -->
-	<div class="col-xl-4 col-sm-6 col-12" *ngFor="let crop of crops">
+	<div class="col-xl-4 col-sm-6 col-12" *ngFor="let corp of corps">
 	<div class="card" style="width:350px;" >
 		<div class="card-header  text-muted1" >
 			<!-- <address> -->
 				<!-- <strong><a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/corpInfo">{{ crop.cropName }}</a></strong><br> -->
 				<!-- <strong><a [routerLink]="" (click)="cropinfo(crop.corpName)">{{ crop.corpName }}</a></strong><br> -->
-			<strong style="color: blue;">{{ crop.corpName }}</strong><br>
-			{{crop.cityName}},
-			{{crop.stateName}}<br>
-			    {{crop.zipCode}},
-				{{crop.streetName}}
+			<strong routerLink="/dashboard/corpInfo" style="color: blue;">{{ corp.corpName }}</strong><br>
+			{{corp.cityName}},
+			{{corp.stateName}}<br>
+			{{corp.streetName}},
+			{{corp.zipCode}}
 				<!-- <abbr title="Phone">P:</abbr> (123) 456-7890 -->
 			  <!-- </address> -->
 		  
@@ -91,8 +91,9 @@
 		<div class="card-footer text-muted">
 		  <!-- <a href="#" class="card-link" style="text-align: left;">Location</a>
 		  <a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">Map</a> -->
-		  <div class="row">
-			<a [routerLink]="" (click)="cropinfo(crop.corpName)">No Of Locations:</a>
+		  <div class="row" >
+			<a [routerLink]="" (click)="corpinfo(corp.corpName)">No Of Locations:{{locations}}</a>
+			
 			<!-- <div class="col-xl-6 col-sm-6 col-12">
 			<a href="#" class="card-link" style="text-align: left;">Location</a>
 			  </div>

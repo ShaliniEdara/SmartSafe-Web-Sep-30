@@ -1,5 +1,4 @@
 import { LongDateFormatKey } from "moment";
-import { Crop } from "./crop";
 
 export class StoreInfoRequest {
 	  id:number;

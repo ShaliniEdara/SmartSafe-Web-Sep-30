@@ -8,7 +8,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { StoreInfoRequest } from 'app/model/storeInfoRequest';
 import { NGXToastrService } from 'app/service/toastr.service';
 import { ConsoleService } from '@ng-select/ng-select/ng-select/console.service';
-import { Crop } from 'app/model/crop';
+import { Corp } from 'app/model/corp';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -37,8 +38,10 @@ export class DashboardComponent implements OnInit {
   status=new Status();
   apis: Application[];
 
-  crop =new Crop();
-  crops: Crop[];
+  corp =new Corp();
+  corps: Corp[];
+  selectedCorp = new Corp();
+  locations:number=this.selectedCorp.locations;
 
   constructor(private http: HttpClient,private router:Router,private spinner:NgxSpinnerService,private changeDetectorRefs: ChangeDetectorRef) {
 
@@ -71,39 +74,52 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  getCropInfoList(){
-    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/corp/all/');
+  getCorpInfoList(){
+    return this.http.get<Corp[]>(environment.smartSafeAPIUrl + '/corp/all/');
   
   }
-  getAllCropInfoList(){
-    return this.getCropInfoList().
+  getAllCorpInfoList(){
+    return this.getCorpInfoList().
       subscribe((data) => {
         console.log(data);
-        this.crops = data;
+        this.corps = data;
         
         this.changeDetectorRefs.markForCheck();
       });
   }
 
-  cropinfo(cropNames){
-    
-    console.log("--------cropes names are------"+cropNames);
-    localStorage.setItem('cropName', cropNames);
-    this.router.navigate(["/dashboard/corpInfo"]);
+  corpinfo(corpName){
+    return this.http.get<Corp>(environment.smartSafeAPIUrl + '/corp/' + corpName).
+    subscribe((data) => {
+      this.selectedCorp = data;
+      this.locations=this.selectedCorp.locations;
+      console.log(this.selectedCorp.locations);
+    console.log("--------cropes names are------"+corpName);
+    localStorage.setItem('corpName', corpName);
+    //this.router.navigate(["/dashboard/corpInfo"]);
     //return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/cropNames');
     
-
+  })
   }
   
-    
-  
+  // getCorpsByCorpName(corpName: string) {
+  //   return this.http.get<Corp>(environment.smartSafeAPIUrl + '/corp/' + corpName);
+  // }
+
+  // onCorpSelected(corpName: string) {
+  //   this. getCorpsByCorpName(corpName).
+  //     subscribe((data) => {
+  //       this.selectedCorp = data;
+
+  //     })
+  // }
   
       
 
   ngOnInit() {
     this.getAllAssignedStoresList();
-    this.getAllCropInfoList();
-
+    this.getAllCorpInfoList();
+    
    // this.spinner.show();
    // this.getAllEndPointsList();
   }

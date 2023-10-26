@@ -7,7 +7,7 @@ export class Corp{
 	
 	status:boolean;
      
-  active: boolean;
+     active: boolean;
 	 streetName:string;
 
 	  cityName:string;
@@ -17,5 +17,6 @@ export class Corp{
 	  stateName:string;
 	  
 	  storeInfo:string;
+	  locations:number;
 
 }

@@ -5,7 +5,6 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Corp } from 'app/model/corp';
-import { Crop } from 'app/model/crop';
 import { Role } from 'app/model/role';
 
 import { NGXToastrService } from 'app/service/toastr.service';
@@ -119,7 +118,7 @@ export class CreatecropmasterComponent implements OnInit {
   
       if (result.value) {
         console.log("hello");
-        this.http.delete<Crop>(environment.smartSafeAPIUrl + "/corp/" + corp.id, this.httpOptions).subscribe(
+        this.http.delete<Corp>(environment.smartSafeAPIUrl + "/corp/" + corp.id, this.httpOptions).subscribe(
           res => {
             console.log(res);
             //event.confirm.resolve(event.newData);
@@ -147,4 +146,6 @@ ngOnInit() {
   this.getAllCropList();
   }
 
-}
+  }
+
+
