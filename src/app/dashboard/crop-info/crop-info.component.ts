@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Crop } from 'app/model/crop';
+import { Corp } from 'app/model/corp';
 import { environment } from 'environments/environment';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -23,12 +23,12 @@ export class CropInfoComponent implements OnInit {
   constructor(private http: HttpClient,private router:Router,private spinner:NgxSpinnerService,private changeDetectorRefs: ChangeDetectorRef) {
 
   }
-  crop=new Crop();
-  crops:Crop[];
-  cropName:string=localStorage.getItem("cropName");
+  corp=new Corp();
+  corps:Corp[];
+  corpName:string=localStorage.getItem("corpName");
   
   
-  cropinfo(){
+  corpinfo(){
     this.router.navigate(["/dashboard/charts-reports"])
   }
 
@@ -36,15 +36,15 @@ export class CropInfoComponent implements OnInit {
     
   }
 
-  getCropInfoList(){
-    return this.http.get<Crop[]>(environment.smartSafeAPIUrl + '/crop/all/');
+  getCorpInfoList(){
+    return this.http.get<Corp[]>(environment.smartSafeAPIUrl + '/corp/all/');
   
   }
-  getAllCropInfoList(){
-    return this.getCropInfoList().
+  getAllCorpInfoList(){
+    return this.getCorpInfoList().
       subscribe((data) => {
         console.log(data);
-        this.crops = data;
+        this.corps = data;
         
         this.changeDetectorRefs.markForCheck();
       });
@@ -52,7 +52,7 @@ export class CropInfoComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getAllCropInfoList();
+    this.getAllCorpInfoList();
     
 
   }

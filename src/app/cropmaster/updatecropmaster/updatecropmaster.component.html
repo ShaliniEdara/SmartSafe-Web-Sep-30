@@ -9,7 +9,7 @@
               <br>
               <p class="content-sub-header"> <a routerLink='/dashboard'><span
                     style="font-size: 15px">Home</span></a>
-                <span style="font-size: 15px">/Crop</span>
+                <span style="font-size: 15px">/Corp Update</span>
               </p>
             </div>
           </div>
@@ -28,20 +28,20 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="cropName" class="form-control-label"><span *ngIf="crop.cropName == undefined || crop.cropName =='' "
+                          <label for="cropName" class="form-control-label"><span *ngIf="corp.corpName == undefined || corp.corpName =='' "
                               style="color: red">*</span>Enter Corp Name
                           </label>
-                          <span class=" text-muted danger" *ngIf="!cropName.valid && (cropName.dirty || cropName.touched)">
+                          <span class=" text-muted danger" *ngIf="!corpName.valid && (corpName.dirty || corpName.touched)">
                             is required!
                           </span>
-                          <input type="text" id="cropName" class="form-control border-primary" name="cropName"
-                            [(ngModel)]="crop.cropName" ngModel #cropName="ngModel" required>
+                          <input type="text" id="corpName" class="form-control border-primary" name="corpName"
+                            [(ngModel)]="corp.corpName" ngModel #corpName="ngModel" required readonly>
 
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="description"><span *ngIf="crop.description == undefined || crop.description =='' "
+                          <label for="description"><span *ngIf="corp.description == undefined || corp.description =='' "
                               style="color: red">*</span>Description
                           </label>
                           <span class=" text-muted danger"
@@ -49,24 +49,95 @@
                             is required!
                           </span>
                           <input type="text" id="description" class="form-control border-primary" name="description"
-                            [(ngModel)]="crop.description" ngModel #description="ngModel" required>
+                            [(ngModel)]="corp.description" ngModel #description="ngModel" required>
 
                         </div>
                       </div>
 
                     </div>
+
+                    <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="streetName"><span *ngIf="corp.streetName == undefined || corp.streetName =='' "
+                            style="color: red">*</span>Street Name
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!streetName.valid && (streetName.dirty || streetName.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="streetName" class="form-control border-primary" name="streetName"
+                          [(ngModel)]="corp.streetName" ngModel #streetName="ngModel" required>
+
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="cityName"><span *ngIf="corp.cityName == undefined || corp.cityName =='' "
+                            style="color: red">*</span>City Name
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!cityName.valid && (cityName.dirty || cityName.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="cityName" class="form-control border-primary" name="cityName"
+                          [(ngModel)]="corp.cityName" ngModel #cityName="ngModel" required>
+
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="stateName"><span *ngIf="corp.stateName == undefined || corp.stateName =='' "
+                            style="color: red">*</span>State Name
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!stateName.valid && (stateName.dirty || stateName.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="stateName" class="form-control border-primary" name="stateName"
+                          [(ngModel)]="corp.stateName" ngModel #stateName="ngModel" required>
+
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="zipCode"><span *ngIf="corp.zipCode == undefined || corp.zipCode =='' "
+                            style="color: red">*</span>Zip Code
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!zipCode.valid && (zipCode.dirty || zipCode.touched)">
+                          is required!
+                        </span>
+                        <input type="text" id="zipCode" class="form-control border-primary" name="zipCode"
+                          [(ngModel)]="corp.zipCode" ngModel #zipCode="ngModel" required>
+
+                      </div>
+                    </div>
+
+
+
+
+
+
+
+
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="d-block">Status</label>
                         <div class="input-group">
                           <div class="custom-control custom-radio d-inline-block float-left">
                             <input type="radio" checked id="active" name="active" class="custom-control-input"
-                              [value]=true [(ngModel)]="crop.status">
+                              [value]=true [(ngModel)]="corp.status">
                             <label class="custom-control-label" for="active">Active</label>
                           </div>
                           <div class="custom-control custom-radio d-inline-block float-left ml-1">
                             <input type="radio" id="inactive" name="inactive" class="custom-control-input"
-                              [value]=false [(ngModel)]="crop.status">
+                              [value]=false [(ngModel)]="corp.status">
                             <label class="custom-control-label" for="inactive">In Active</label>
                           </div>
                         </div>
@@ -76,7 +147,7 @@
                   </div>
                   <div class="form-actions center">
 
-                    <button type="button" class="btn btn-raised btn-primary mr-1" (click)="updateCrop(crop.id)"
+                    <button type="button" class="btn btn-raised btn-primary mr-1" (click)="updateCorp(corp.id)"
                     routerLink="/cropmaster/createcrop">
                     <i class="fa fa-check-square-o"></i> Update
                     </button>
