@@ -42,6 +42,7 @@ export class DashboardComponent implements OnInit {
   corps: Corp[];
   selectedCorp = new Corp();
   locations:number=this.selectedCorp.locations;
+  corpName:String;
 
   constructor(private http: HttpClient,private router:Router,private spinner:NgxSpinnerService,private changeDetectorRefs: ChangeDetectorRef) {
 
@@ -85,9 +86,13 @@ export class DashboardComponent implements OnInit {
         this.corps = data;
         
         this.changeDetectorRefs.markForCheck();
+        this.corpName=this.corp.corpName;
+        localStorage.setItem("corpname",this.corp.corpName)
+        console.log("addsag............"+this.corp.corpName);
       });
   }
 
+  
   corpinfo(corpName){
     return this.http.get<Corp>(environment.smartSafeAPIUrl + '/corp/' + corpName).
     subscribe((data) => {
