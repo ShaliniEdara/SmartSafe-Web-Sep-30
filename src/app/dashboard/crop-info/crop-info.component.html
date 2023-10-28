@@ -2,7 +2,7 @@
   <div class="container-fluid">
   <div class="row text-left">
     <div class="col-md-8">
-    <div class="content-header" style="font-size: 20px">{{cropName}}</div>
+    <div class="content-header" style="font-size: 20px">{{corpName}}</div>
     <br>
     <p class="content-sub-header"> <a routerLink="/dashboard"><span
         style="font-size: 15px">Home</span></a>
@@ -18,7 +18,7 @@
       <p style="color: blue;">$23,500</p>
       </div>
       <div class="cardPart cardPart2">All Locations-Today
-      <p style="color: blue;">$15,100</p>
+      <p style="color: blue;">${{corpinfos.todayInsertBillsAmount}}</p>
       </div>
       </div> 
     </div>
@@ -64,16 +64,16 @@
 <div class="row">
   <div class="col-md-12">
 <div class="col-xl-12 col-sm-6 col-08">
-  <div class="card" style="width: 1000px;">
+  <div class="card" style="width: 1000px;"  *ngFor="let corp of corpinfos.storeInfoResponse">
     <div class="twoCard">
       <div class="cardPart cardPart3">
         <div class="card" >
         <div  class="twoCard">
           <div class="cardPart cardPart5">
-            <a [routerLink]="" (click)="corpinfo()">View Profile</a>
+            <a (click)="corpinfo(corp.storeName)">View Profile</a>
           </div>
           <div class="cardPart cardPart6">
-            <p>Location Address</p>
+            <p>Locatio:{{corp.storeName}}</p>
           </div>
         </div>
       </div>

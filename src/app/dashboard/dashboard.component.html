@@ -43,10 +43,10 @@
 			<div class="card" style="width: 24rem;">
 			<div class="twoCard">
 			  <div class="cardPart cardPart1">All Locations–All Safe
-				<p style="color: blue;">$23,500</p>
+				<p style="color: blue;">$0</p>
 			  </div>
 			  <div class="cardPart cardPart2">All Locations-Today
-				<p style="color: blue;">$15,100</p>
+				<p style="color: blue;">${{allCorpsTodayInsertBillsAmount}}</p>
 			  </div>
 			  </div>
 			</div>
@@ -92,7 +92,7 @@
 		  <!-- <a href="#" class="card-link" style="text-align: left;">Location</a>
 		  <a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/charts-reports">Map</a> -->
 		  <div class="row" >
-			<a  routerLink="/dashboard/corpInfo" >No Of Locations:{{corp.locations}}</a>
+			<a   (click)="corpInfo(corp.corpName)" >No Of Locations:{{corp.locations}}</a>
 			
 			<!-- <div class="col-xl-6 col-sm-6 col-12">
 			<a href="#" class="card-link" style="text-align: left;">Location</a>

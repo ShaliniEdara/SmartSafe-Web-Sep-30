@@ -1,3 +1,5 @@
+import { StoreResponse } from "./storeResponse";
+
 export class Corp{
     id:number;
 
@@ -16,7 +18,16 @@ export class Corp{
 
 	  stateName:string;
 	  
-	  storeInfo:string;
+	  storeInfoResponse:StoreResponse[];
+
 	  locations:number;
+	  
+	  storeInfoId:number[];
+
+	  todayInsertBillsAmount:number;
+
+	  allCorpsTodayInsertBillsAmount:number;
+
+
 
 }

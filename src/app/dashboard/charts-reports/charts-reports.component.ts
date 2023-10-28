@@ -38,7 +38,7 @@ export class ChartsReportsComponent implements OnInit {
         this.dashBoardInfo();
     }
 ;
-  storename:string=localStorage.getItem("storename");
+  storename:string=localStorage.getItem("storeName");
   //storeinfo=new StoreResponse();
   //storeinfermation:StoreResponse[];
 //   storeInfo(){
@@ -52,7 +52,7 @@ eod=new Eod();
 eods:Eod[];
 //reports:any;
 //storename:string=localStorage.getItem("storename");
-today:number=0;
+today:number=1;
 
 // eodReports(){
 //  console.log("we are in eod reports");
