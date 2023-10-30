@@ -24,11 +24,14 @@ export class CropInfoComponent implements OnInit {
 
   }
   corp=new Corp();
+  corpinfos:any ;
   corps:Corp[];
-  corpName:string=localStorage.getItem("corpName");
+  corpName:string;
+  today:Boolean=true;
   
   
-  corpinfo(){
+  corpinfo(storeName:string){
+    localStorage.setItem("storeName",storeName);
     this.router.navigate(["/dashboard/charts-reports"])
   }
 
@@ -36,23 +39,22 @@ export class CropInfoComponent implements OnInit {
     
   }
 
-  getCorpInfoList(){
-    return this.http.get<Corp[]>(environment.smartSafeAPIUrl + '/corp/all/');
+   getCorpInfo(){
+    console.log("--------we are in getCorpInfo methode")
+    this.corpName=localStorage.getItem("corpname");
+    //return this.http.get<any>(environment.smartSafeAPIUrl  + '/corp/' + this.corpName+'/'+this.today).subscribe((data) =>{
+      return this.http.get<Corp>(environment.smartSafeAPIUrl+"/corp/"+this.corpName+"/"+1).
+      subscribe((data) => {
+        this.corpinfos = data;
+        console.log("corp all info is -----" + this.corpinfos);
+      });
   
   }
-  getAllCorpInfoList(){
-    return this.getCorpInfoList().
-      subscribe((data) => {
-        console.log(data);
-        this.corps = data;
-        
-        this.changeDetectorRefs.markForCheck();
-      });
-  }
-
+  
 
   ngOnInit() {
-    this.getAllCorpInfoList();
+    
+    this.getCorpInfo();
     
 
   }

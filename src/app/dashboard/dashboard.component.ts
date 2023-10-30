@@ -9,6 +9,7 @@ import { StoreInfoRequest } from 'app/model/storeInfoRequest';
 import { NGXToastrService } from 'app/service/toastr.service';
 import { ConsoleService } from '@ng-select/ng-select/ng-select/console.service';
 import { Corp } from 'app/model/corp';
+import { DashBoardResponce } from 'app/model/dashboard';
 
 
 @Component({
@@ -43,6 +44,11 @@ export class DashboardComponent implements OnInit {
   selectedCorp = new Corp();
   locations:number=this.selectedCorp.locations;
   corpName:String;
+  
+  dashboardinfo=new DashBoardResponce();
+  allLocationsToday:number;
+  allCorpsTodayInsertBillsAmount:number;
+
 
   constructor(private http: HttpClient,private router:Router,private spinner:NgxSpinnerService,private changeDetectorRefs: ChangeDetectorRef) {
 
@@ -118,12 +124,27 @@ export class DashboardComponent implements OnInit {
 
   //     })
   // }
+  getdashboardInfo(){
+    return this.http.get<any>(environment.smartSafeAPIUrl + '/corp/dashboardinfo' ).subscribe((data) => {
+      this.dashboardinfo= data;
+      this.allCorpsTodayInsertBillsAmount=this.dashboardinfo.allCorpsTodayInsertBillsAmount;
+    })
+
+  }
+
+  corpInfo(corpName:any){
+    console.log(corpName);
+  localStorage.setItem("corpname",corpName);
+  this.router.navigate(["/dashboard/corpInfo"]);
+
+  }
   
       
 
   ngOnInit() {
     this.getAllAssignedStoresList();
     this.getAllCorpInfoList();
+    this.getdashboardInfo();
     
    // this.spinner.show();
    // this.getAllEndPointsList();
