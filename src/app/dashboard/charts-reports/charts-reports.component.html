@@ -14,8 +14,10 @@
         <div class="content-header" style="font-size: 20px">{{storename}} Details</div>
         <br>
         <p class="content-sub-header"> <a routerLink="/dashboard"><span
-              style="font-size: 15px">Home</span></a>
-          <span style="font-size: 15px">/{{storename}}</span>
+              style="font-size: 15px">Home</span></a>  
+          <span style="font-size: 15px" routerLink="/dashboard">/dashboard</span> 
+         <span style="font-size: 15px" routerLink="/dashboard/corpInfo" >/corpInfo</span>
+        <span style="font-size: 15px">/{{storename}}</span>
 
         </p>
       </div>
@@ -75,7 +77,8 @@
               <div class="media d-flex">
                  <div class="media-body text-left" style="color:blue">
                 <!-- <i class="icon-pie-chart warning font-large-2 float-left"></i> -->
-                <a   routerLink="/user-management/user-management-for-dashboard" style="color: blue"><span>Active Users</span></a>
+                <!-- <a   routerLink="/user-management/user-management-for-dashboard" style="color: blue"><span>Active Users</span></a> -->
+                <a   (click)="goToUserList(storename)" style="color: blue"><span>Active Users</span></a>
                 </div> 
                 <div class="media-body text-right" style="color:blue">
                   
