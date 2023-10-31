@@ -138,7 +138,10 @@ chart.data.datasets[dataSetIndex].data = data;
 chart.update();
 }
 
-  
+goToUserList(storename:any){
+  localStorage.setItem("STORENAME",storename);
+  this.router.navigate(["/user-management/user-management-for-dashboard"]);
+}
 
 
 }

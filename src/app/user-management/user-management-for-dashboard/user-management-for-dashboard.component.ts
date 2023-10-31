@@ -33,7 +33,7 @@ export class UserManagementForDashboardComponent implements OnInit {
   users: UserAccount[];
 
   user1 =  new UserAccount();
-  storename:string=localStorage.getItem("storename");
+  storename:string=localStorage.getItem("STORENAME");
   
   
 

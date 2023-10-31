@@ -6,18 +6,20 @@
     <br>
     <p class="content-sub-header"> <a routerLink="/dashboard"><span
         style="font-size: 15px">Home</span></a>
+        <span style="font-size: 15px" routerLink="/dashboard">/dashboard</span>
+        <span style="font-size: 15px">/corpInfo</span>
       <!-- <span style="font-size: 15px">/{{storename}}</span> -->
 
     </p>
     </div>
 
     <div class="col-xl-4 col-sm-6 col-12">
-    <div class="card" style="width: 24rem;">
+    <div class="card" style="width: 28rem;">
     <div class="twoCard">
-      <div class="cardPart cardPart1">All Locations–All Safe
-      <p style="color: blue;">$23,500</p>
+      <div class="cardPart cardPart1">ALL LOCATIONS–ALL SAFE
+      <p style="color: blue;">$0</p>
       </div>
-      <div class="cardPart cardPart2">All Locations-Today
+      <div class="cardPart cardPart2">ALL LOCATIONS-TODAY
       <p style="color: blue;">${{corpinfos.todayInsertBillsAmount}}</p>
       </div>
       </div> 
@@ -73,7 +75,7 @@
             <a (click)="corpinfo(corp.storeName)">View Profile</a>
           </div>
           <div class="cardPart cardPart6">
-            <p>Locatio:{{corp.storeName}}</p>
+            <p>Location:{{corp.storeName}}</p>
           </div>
         </div>
       </div>
