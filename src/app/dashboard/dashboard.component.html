@@ -41,12 +41,12 @@
 		  </div>
   
 		  <div class="col-xl-4 col-sm-6 col-12">
-			<div class="card" style="width:28rem;">
+			<div class="card" style="width:24rem;">
 			<div class="twoCard">
-			  <div class="cardPart cardPart1">ALL LOCATIONS–ALL SAFE
+			  <div class="cardPart cardPart1">All Locations–All Safe
 				<p style="color: blue;">${{allLocationsAllSafeAmount}}</p>
 			  </div>
-			  <div class="cardPart cardPart2">ALL LOCATIONS-TODAY
+			  <div class="cardPart cardPart2">All Locations-Today
 				<p style="color: blue;">${{allCorpsTodayInsertBillsAmount}}</p>
 			  </div>
 			  </div>
@@ -61,7 +61,7 @@
    <div class="row">
   <!-- <div class="container bcontent"> -->
 	<div class="col-xl-4 col-sm-6 col-12" *ngFor="let corp of corps">
-	<div class="card" style="width:400px;" >
+	<div class="card" style="width:350px;" >
 		<div class="card-header  text-muted1" >
 			<!-- <address> -->
 				<!-- <strong><a href="#" class="card-link"  style="text-align: right;" routerLink="/dashboard/corpInfo">{{ crop.cropName }}</a></strong><br> -->
@@ -79,11 +79,11 @@
 		<div class="card-body">
 		  <div class="row">
 		  <div class="col-xl-6 col-sm-6 col-12">
-			<p class="card-text" style="font-size:small;">AMOUNT IN SAFE </p>
+			<p class="card-text" style="font-size:small;">Amount In Safe </p>
 			<p>${{dashboard?.stateBankBalance}}</p>
 			</div>
 			<div class="col-xl-6 col-sm-6 col-12">
-			<p class="card-text"  style="text-align: right;font-size:small;">CURRENT BUSINESS DAY </p>
+			<p class="card-text"  style="text-align: right;font-size:small;">Current Business Day </p>
 			<p class="card-text"  style="text-align: right;">${{corp.todayInsertBillsAmount}} </p>
 		  </div>
 		  </div>
