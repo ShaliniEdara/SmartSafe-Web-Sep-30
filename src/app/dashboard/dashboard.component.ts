@@ -46,8 +46,11 @@ export class DashboardComponent implements OnInit {
   corpName:String;
   
   dashboardinfo=new DashBoardResponce();
+  allLocationsAllSafe =new DashBoardResponce();
   allLocationsToday:number;
   allCorpsTodayInsertBillsAmount:number;
+  
+  allLocationsAllSafeAmount:number;
 
 
   constructor(private http: HttpClient,private router:Router,private spinner:NgxSpinnerService,private changeDetectorRefs: ChangeDetectorRef) {
@@ -138,6 +141,15 @@ export class DashboardComponent implements OnInit {
   this.router.navigate(["/dashboard/corpInfo"]);
 
   }
+
+   getAllLocationsAllSafeAmount(){
+
+       return this.http.get<any>(environment.smartSafeAPIUrl + '/corp/dashboard/alllocationsallsafe' ).subscribe((data) => {
+      this.allLocationsAllSafe= data;
+      this.allLocationsAllSafeAmount=this.allLocationsAllSafe.allLocationAllSafeAmount;
+    })
+
+  }
   
       
 
@@ -145,6 +157,7 @@ export class DashboardComponent implements OnInit {
     this.getAllAssignedStoresList();
     this.getAllCorpInfoList();
     this.getdashboardInfo();
+    this.getAllLocationsAllSafeAmount();
     
    // this.spinner.show();
    // this.getAllEndPointsList();
