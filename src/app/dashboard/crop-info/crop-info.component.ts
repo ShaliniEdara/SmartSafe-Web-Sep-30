@@ -24,10 +24,14 @@ export class CropInfoComponent implements OnInit {
 
   }
   corp=new Corp();
+  corpInfo :any;
   corpinfos:any ;
   corps:Corp[];
   corpName:string;
   today:Boolean=true;
+  corpAllLocationsAllSafeAmount:number = 0;
+  storeInfo:any[];
+  //totalcorp:number = 0;
   
   
   corpinfo(storeName:string){
@@ -47,14 +51,27 @@ export class CropInfoComponent implements OnInit {
       subscribe((data) => {
         this.corpinfos = data;
         console.log("corp all info is -----" + this.corpinfos);
+        this.storeInfo=this.corpinfos.storeInfoResponse;
+      
+      this.storeInfo.forEach(c =>
+        this.corpAllLocationsAllSafeAmount += c.storeSafeAmount
+        
+        )
+        console.log("corp alllocations all safeAmount------"+this.corpAllLocationsAllSafeAmount)
+
       });
+      
+
   
   }
+
+  
   
 
   ngOnInit() {
     
     this.getCorpInfo();
+    
     
 
   }

@@ -17,7 +17,7 @@
     <div class="card" style="width: 24rem;">
     <div class="twoCard">
       <div class="cardPart cardPart1">All Locations–All Safe
-      <p style="color: blue;">$0</p>
+      <p style="color: blue;">${{corpAllLocationsAllSafeAmount}}</p>
       </div>
       <div class="cardPart cardPart2">All Locations-Today
       <p style="color: blue;">${{corpinfos.todayInsertBillsAmount}}</p>
@@ -84,12 +84,15 @@
         <div class="threeCard">
         <div class="cardPart cardPart7">
           <p>AMOUNT IN SAFE</p>
+          <p>${{corp.storeSafeAmount}}</p>
         </div>
         <div class="cardPart cardPart8">
           <p>LAST BUSINESS DAY</p>
+          <p>${{corp.lastBussinessDayAmount}}</p>
         </div>
         <div class="cardPart cardPart9">
           <p>	LAST PICK UP AMOUNT: </p>
+          <p>${{corp.lastPickupAmount}}</p>
         </div>
       </div>
 
