@@ -6,25 +6,25 @@
     <br>
     <p class="content-sub-header"> <a routerLink="/dashboard"><span
         style="font-size: 15px">Home</span></a>
-        <span style="font-size: 15px" routerLink="/dashboard">/dashboard</span>
-        <span style="font-size: 15px">/corpInfo</span>
+        <span style="font-size: 15px" routerLink="/dashboard">/Dashboard</span>
+        <span style="font-size: 15px">/CorpInfo</span>
       <!-- <span style="font-size: 15px">/{{storename}}</span> -->
 
     </p>
     </div>
 
     <div class="col-xl-4 col-sm-6 col-12">
-    <div class="card" style="width: 24rem;">
-    <div class="twoCard">
-      <div class="cardPart cardPart1">All Locations–All Safe
-      <p style="color: blue;">${{corpAllLocationsAllSafeAmount}}</p>
-      </div>
-      <div class="cardPart cardPart2">All Locations-Today
-      <p style="color: blue;">${{corpinfos.todayInsertBillsAmount}}</p>
-      </div>
-      </div> 
-    </div>
-    </div>
+			<div class="card" style="width:24rem;">
+			<div class="twoCard">
+			  <div class="cardPart cardPart1"><strong style="color: #F3797E">AllLocation – All Safe</strong><br><br>
+				<h3 style="color: #3143ce"><strong>${{corpAllLocationsAllSafeAmount}}</strong></h3>
+			  </div>
+			  <div class="cardPart cardPart2"><strong style="color: #F3797E">All Locations - Today</strong><br><br>
+				<h3 style="color: #3143ce"><strong>${{corpinfos.todayInsertBillsAmount}}</strong></h3>
+			  </div>
+			  </div>
+			</div>
+			</div>
   </div>
 </div>
 </div>
@@ -75,7 +75,7 @@
             <a (click)="corpinfo(corp.storeName)">View Profile</a>
           </div>
           <div class="cardPart cardPart6">
-            <p>Location:{{corp.storeName}}</p>
+            <p style="color:rgba(216, 36, 126, 0.781);">Location:{{corp.storeName}}</p>
           </div>
         </div>
       </div>
@@ -83,16 +83,16 @@
       <div class="cardPart cardPart4">
         <div class="threeCard">
         <div class="cardPart cardPart7">
-          <p>AMOUNT IN SAFE</p>
-          <p>${{corp.storeSafeAmount}}</p>
+          <p style="color:rgba(19, 144, 216, 0.781);"><strong>AMOUNT IN SAFE</strong></p>
+          <h3 style="color:rgb(230, 139, 20)"><strong>${{corp.storeSafeAmount}}</strong></h3>
         </div>
         <div class="cardPart cardPart8">
-          <p>LAST BUSINESS DAY</p>
-          <p>${{corp.lastBussinessDayAmount}}</p>
+          <p style="color:rgba(19, 144, 216, 0.781);"><strong>LAST BUSINESS DAY</strong></p>
+          <h3 style="color:rgb(230, 139, 20)"><strong>${{corp.lastBussinessDayAmount}}</strong></h3>
         </div>
         <div class="cardPart cardPart9">
-          <p>	LAST PICK UP AMOUNT: </p>
-          <p>${{corp.lastPickupAmount}}</p>
+          <p style="color:rgba(19, 144, 216, 0.781);"><strong>LAST PICK UP AMOUNT</strong></p>
+          <h3 style="color:rgb(230, 139, 20)"><strong>${{corp.lastPickupAmount}}</strong></h3>
         </div>
       </div>
 
