@@ -1,21 +1,37 @@
-# Created by https://www.gitignore.io/api/visualstudiocode
-# Edit at https://www.gitignore.io/?templates=visualstudiocode
+# Node.js
+node_modules/
 
-# dependencies
-/node_modules
+# Angular
+/dist/
+/*.log
+/e2e/*.log
 
+# IDE/Text Editor
+.idea/
+.vscode/
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# Compiled files
+*.class
+*.war
+*.ear
+*.jar
 
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.sqlite3
+*.db
+*.hdb
 
+# Dependency directories
+bower_components/
+jspm_packages/
 
-# End of https://www.gitignore.io/api/visualstudiocode
-src/app/model/lock.ts
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+npm-debug.log
+yarn-error.log
