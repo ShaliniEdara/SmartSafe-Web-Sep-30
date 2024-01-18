@@ -85,12 +85,12 @@
                         <span class=" text-muted danger"
                           *ngIf="!mobile.valid && (mobile.dirty || mobile.touched)">
                           <span *ngIf="mobile.errors.required">is required!</span>
-                          <span *ngIf="mobile.errors.pattern"> Mobile No must be like 123-456-7890</span>
+                          <!-- <span *ngIf="mobile.errors.pattern"> Mobile No must be like 123-456-7890</span> -->
                         </span>
                                                 
-                        <input required type="tel"  id="mobile" class="form-control border-primary" name="mobile"
+                        <input type="text"  id="mobile" class="form-control border-primary" name="mobile"
                           [(ngModel)]="user.mobile" ngModel #mobile="ngModel"
-                           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12" required>
+                          pattern="\d{3}-\d{3}-\d{4}" (input)="formatPhoneNumber($event)" required>
 
                       </div>
                     </div>

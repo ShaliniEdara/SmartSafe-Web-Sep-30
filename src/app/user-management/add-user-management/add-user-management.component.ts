@@ -122,6 +122,19 @@ export class AddUserManagementComponent implements OnInit {
       });
   }
 
+
+  formatPhoneNumber(event: any) {
+    const input = event.target;
+    const inputValue = input.value.replace(/\D/g, ''); // Remove non-digit characters
+
+    if (inputValue.length <= 10) {
+      input.value = inputValue.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+    } else {
+      // Truncate extra characters
+      input.value = inputValue.slice(0, 10).replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+    }
+  }
+
   ngOnInit() {
     
     this.getAllRolesList();
