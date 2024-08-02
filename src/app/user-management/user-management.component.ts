@@ -70,8 +70,24 @@ export class UserManagementComponent implements OnInit {
 
   getUserList() {
 
+    return this.http.get<UserAccount[]>(environment.smartSafeAPIUrl + '/userInfo/active/all', this.httpOptions);
+  }
+
+  getAllUser() {
+
     return this.http.get<UserAccount[]>(environment.smartSafeAPIUrl + '/userInfo/all', this.httpOptions);
   }
+
+  getInActiveUserList() {
+
+    return this.http.get<UserAccount[]>(environment.smartSafeAPIUrl + '/userInfo/inactive/all', this.httpOptions);
+  }
+
+  getDeletedUserList() {
+
+    return this.http.get<UserAccount[]>(environment.smartSafeAPIUrl + '/userInfo/delete/all', this.httpOptions);
+  }
+
 
   // gerUserdata(id:number){
   //   return this.http.get<UserAccount>(environment.smartSafeAPIUrl + "/userInfo/" + id,this.httpOptions)
@@ -81,6 +97,44 @@ export class UserManagementComponent implements OnInit {
 
 
     return this.getUserList().
+      subscribe((data) => {
+        console.log(data);
+        this.users = data;
+        this.changeDetectorRefs.markForCheck();
+        this.spinner.hide();
+      });
+
+  }
+  getallUsersList() {
+
+
+    return this. getAllUser().
+      subscribe((data) => {
+        console.log(data);
+        this.users = data;
+        this.changeDetectorRefs.markForCheck();
+        this.spinner.hide();
+      });
+
+  }
+
+  getInActiveUsersList() {
+
+
+    return this.getInActiveUserList().
+      subscribe((data) => {
+        console.log(data);
+        this.users = data;
+        this.changeDetectorRefs.markForCheck();
+        this.spinner.hide();
+      });
+
+  }
+
+  getDeletedUsersList() {
+
+
+    return this. getDeletedUserList().
       subscribe((data) => {
         console.log(data);
         this.users = data;
@@ -146,7 +200,7 @@ export class UserManagementComponent implements OnInit {
 
       if (result.value) {
         console.log("hello");
-        this.http.delete<UserAccount>(environment.smartSafeAPIUrl + "/userInfo/" + user.id, this.httpOptions).subscribe(
+        this.http.delete<UserAccount>(environment.smartSafeAPIUrl + "/userInfo/kiosk/" + user.id, this.httpOptions).subscribe(
           res => {
             console.log(res);
             //event.confirm.resolve(event.newData);
@@ -169,6 +223,24 @@ export class UserManagementComponent implements OnInit {
     })
 
     }
+  }
+  filterOption: string = 'active'; // default value
+  onFilterChange(): void {debugger;
+    console.log('Selected filter option-----------:', this.filterOption);
+    // Add your logic here to handle the filter change
+    if (this.filterOption === 'all') {
+      this.getallUsersList()
+    } else if (this.filterOption === 'active') {
+      this.getAllUsersList();
+      //return this.users.filter(user => user.active);
+    } else if (this.filterOption === 'inactive') {
+      this.getInActiveUsersList()
+      //return this.users.filter(user => !user.active);
+    } else if (this.filterOption === 'deleted') {
+      this.getDeletedUsersList()
+      //return this.users.filter(user => user.deleted); // Assuming you have a deleted property
+    }
+    //return this.users;
   }
 
 

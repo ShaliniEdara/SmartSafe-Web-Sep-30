@@ -70,8 +70,44 @@ export class LocksComponent implements OnInit {
     return this.http.get<LocksInfoRequest[]>(environment.smartSafeAPIUrl + '/locks/all');
 
   }
+  getActiveLockList(){
+    return this.http.get<LocksInfoRequest[]>(environment.smartSafeAPIUrl + '/locks/active/all');
+
+  }
+  getInActiveLockList(){
+    return this.http.get<LocksInfoRequest[]>(environment.smartSafeAPIUrl + '/locks/inactive/all');
+
+  }
+  getDeletedLockList(){
+    return this.http.get<LocksInfoRequest[]>(environment.smartSafeAPIUrl + '/locks/deleted/all');
+
+  }
   getAllLocksList() {
     return this.getLockList().
+      subscribe((data) => {
+        console.log(data);
+        this.locks = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllActiveLocksList() {
+    return this.getActiveLockList().
+      subscribe((data) => {
+        console.log(data);
+        this.locks = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllInActiveLocksList() {
+    return this.getInActiveLockList().
+      subscribe((data) => {
+        console.log(data);
+        this.locks = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllDeletedLocksList() {
+    return this.getDeletedLockList().
       subscribe((data) => {
         console.log(data);
         this.locks = data;
@@ -145,7 +181,7 @@ locksdelete(lock: LocksInfoRequest) {
 
     if (result.value) {
       console.log("hello");
-      this.http.delete<LocksInfoRequest>(environment.smartSafeAPIUrl + "/locks/" + lock.id, this.httpOptions).subscribe(
+      this.http.delete<LocksInfoRequest>(environment.smartSafeAPIUrl + "/locks/deactive/" + lock.id, this.httpOptions).subscribe(
         res => {
           console.log(res);
           //event.confirm.resolve(event.newData);
@@ -170,9 +206,27 @@ locksdelete(lock: LocksInfoRequest) {
 
 }
 }
+filterOption: string = 'active'; // default value
+  onFilterChange(): void {debugger;
+    console.log('Selected filter option-----------:', this.filterOption);
+    // Add your logic here to handle the filter change
+    if (this.filterOption === 'all') {
+      this.getAllLocksList()
+    } else if (this.filterOption === 'active') {
+      this.getAllActiveLocksList();
+      //return this.users.filter(user => user.active);
+    } else if (this.filterOption === 'inactive') {
+      this.getAllInActiveLocksList();
+      //return this.users.filter(user => !user.active);
+    } else if (this.filterOption === 'deleted') {
+      this.getAllDeletedLocksList();
+      //return this.users.filter(user => user.deleted); // Assuming you have a deleted property
+    }
+    //return this.users;
+  }
 
   ngOnInit() {
-    this.getAllLocksList();
+    this.getAllActiveLocksList();
     this.getAllStoresList();
     console.log(this.getAllStoresList())
 

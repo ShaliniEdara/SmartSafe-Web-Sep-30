@@ -45,8 +45,41 @@ export class CreatestoreComponent implements OnInit {
   getStoreList() {
     return this.http.get<StoreInfoRequest[]>(environment.smartSafeAPIUrl + '/storeinfo/all');
   }
+  getActiveStoreList() {
+    return this.http.get<StoreInfoRequest[]>(environment.smartSafeAPIUrl + '/storeinfo/active/all');
+  }
+  getInActiveStoreList() {
+    return this.http.get<StoreInfoRequest[]>(environment.smartSafeAPIUrl + '/storeinfo/inactive/all');
+  }
+  getDeletedStoreList() {
+    return this.http.get<StoreInfoRequest[]>(environment.smartSafeAPIUrl + '/storeinfo/deleted/all');
+  }
   getAllStoresList() {
     return this.getStoreList().
+      subscribe((data) => {
+        console.log(data);
+        this.storeInfoRequests = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllActiveStoresList() {
+    return this.getActiveStoreList().
+      subscribe((data) => {
+        console.log(data);
+        this.storeInfoRequests = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllInActiveStoresList() {
+    return this.getInActiveStoreList().
+      subscribe((data) => {
+        console.log(data);
+        this.storeInfoRequests = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllDeletedStoresList() {
+    return this.getDeletedStoreList().
       subscribe((data) => {
         console.log(data);
         this.storeInfoRequests = data;
@@ -120,7 +153,7 @@ storedelete(storeInfoRequest: StoreInfoRequest) {
 
     if (result.value) {
       console.log("hello");
-      this.http.delete<StoreInfoRequest>(environment.smartSafeAPIUrl + "/storeinfo/" + storeInfoRequest.id, this.httpOptions).subscribe(
+      this.http.delete<StoreInfoRequest>(environment.smartSafeAPIUrl + "/storeinfo/deactivate/" + storeInfoRequest.id, this.httpOptions).subscribe(
         res => {
           console.log(res);
           //event.confirm.resolve(event.newData);
@@ -165,6 +198,25 @@ onCorpSelected(cropName:string){
   // this.getAllCropInfoList();
 
 }
+filterOption: string = 'active'; // default value
+  onFilterChange(): void {debugger;
+    console.log('Selected filter option-----------:', this.filterOption);
+    // Add your logic here to handle the filter change
+    if (this.filterOption === 'all') {
+      this.getAllStoresList()
+    } else if (this.filterOption === 'active') {
+      this.getAllActiveStoresList();
+      //return this.users.filter(user => user.active);
+    } else if (this.filterOption === 'inactive') {
+      this.getAllInActiveStoresList()
+      //return this.users.filter(user => !user.active);
+    } else if (this.filterOption === 'deleted') {
+      this.getAllDeletedStoresList()
+      //return this.users.filter(user => user.deleted); // Assuming you have a deleted property
+    }
+    //return this.users;
+  }
+
 
 
 
@@ -172,7 +224,7 @@ onCorpSelected(cropName:string){
 
   ngOnInit() {
     this.getAllCropInfoList();
-    this.getAllStoresList()
+    this.getAllActiveStoresList()
     // this.router.navigate(["/dashboard/charts-reports"]);
   }
 

@@ -46,8 +46,41 @@ export class BillValidatorComponent implements OnInit {
   getBillValidatorList() {
     return this.http.get<BillValidatorInfoRequest[]>(environment.smartSafeAPIUrl + '/billValidator/all');
   }
+  getActiveBillValidatorList() {
+    return this.http.get<BillValidatorInfoRequest[]>(environment.smartSafeAPIUrl + '/billValidator/active/all');
+  }
+  getInActiveBillValidatorList() {
+    return this.http.get<BillValidatorInfoRequest[]>(environment.smartSafeAPIUrl + '/billValidator/inactive/all');
+  }
+  getDeletedBillValidatorList() {
+    return this.http.get<BillValidatorInfoRequest[]>(environment.smartSafeAPIUrl + '/billValidator/deleted/all');
+  }
   getAllBillValidatorList() {
     return this.getBillValidatorList().
+      subscribe((data) => {
+        console.log(data);
+        this.billValidators = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllActiveBillValidatorList() {
+    return this.getActiveBillValidatorList().
+      subscribe((data) => {
+        console.log(data);
+        this.billValidators = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllInActiveBillValidatorList() {
+    return this.getInActiveBillValidatorList().
+      subscribe((data) => {
+        console.log(data);
+        this.billValidators = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllDeletedBillValidatorList() {
+    return this.getDeletedBillValidatorList().
       subscribe((data) => {
         console.log(data);
         this.billValidators = data;
@@ -117,7 +150,7 @@ export class BillValidatorComponent implements OnInit {
   
       if (result.value) {
         console.log("hello");
-        this.http.delete<BillValidatorInfoRequest>(environment.smartSafeAPIUrl + "/billValidator/" + billValidator.id, this.httpOptions).subscribe(
+        this.http.delete<BillValidatorInfoRequest>(environment.smartSafeAPIUrl + "/billValidator/deactivate/" + billValidator.id, this.httpOptions).subscribe(
           res => {
             console.log(res);
             //event.confirm.resolve(event.newData);
@@ -141,11 +174,29 @@ export class BillValidatorComponent implements OnInit {
   
   }
 }
-
-  ngOnInit() {
-    this.getAllBillValidatorList();
+filterOption: string = 'active'; // default value
+  onFilterChange(): void {debugger;
+    console.log('Selected filter option-----------:', this.filterOption);
+    // Add your logic here to handle the filter change
+    if (this.filterOption === 'all') {
+      this.getAllBillValidatorList()
+    } else if (this.filterOption === 'active') {
+      this.getAllActiveBillValidatorList();
+      //return this.users.filter(user => user.active);
+    } else if (this.filterOption === 'inactive') {
+      this.getAllInActiveBillValidatorList()
+      //return this.users.filter(user => !user.active);
+    } else if (this.filterOption === 'deleted') {
+      this.getAllDeletedBillValidatorList()
+      //return this.users.filter(user => user.deleted); // Assuming you have a deleted property
+    }
+    //return this.users;
   }
 
+
+  ngOnInit() {
+    this.getAllActiveBillValidatorList();
+  }
 
 displayStyle1 = "none";
   dynamicText2:string;

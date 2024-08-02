@@ -20,13 +20,19 @@
             </div>
             <div class="card">
                 <div class="card-header">
-                    <div class="col-sm-12">
+                    <div class="col-sm-4">
 
 
                         <button type="button" class="btn btn-raised btn-primary"
                             routerLink="/user-management/add-user-management">
                             <i class="ft-plus"></i> Add Users
                         </button>
+                        <select [(ngModel)]="filterOption" class="form-control" (change)="onFilterChange()">
+                            <option value="all">All</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="deleted">Deleted</option>
+                        </select>
                     </div>
                 </div>
                 <div class="card-body">

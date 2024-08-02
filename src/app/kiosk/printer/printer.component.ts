@@ -45,8 +45,42 @@ export class PrinterComponent implements OnInit {
   getPrinterList() {
     return this.http.get<PrinterInfoRequest[]>(environment.smartSafeAPIUrl + '/printer/all');
   }
+  getActivePrinterList() {
+    return this.http.get<PrinterInfoRequest[]>(environment.smartSafeAPIUrl + '/printer/active/all');
+  }
+  getInActivePrinterList() {
+    return this.http.get<PrinterInfoRequest[]>(environment.smartSafeAPIUrl + '/printer/inactive/all');
+  }
+  getDeletedPrinterList() {
+    return this.http.get<PrinterInfoRequest[]>(environment.smartSafeAPIUrl + '/printer/deleted/all');
+  }
   getAllPrinterList() {
     return this.getPrinterList().
+      subscribe((data) => {
+        console.log(data);
+        this.printers = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  
+  getAllActivePrinterList() {
+    return this.getActivePrinterList().
+      subscribe((data) => {
+        console.log(data);
+        this.printers = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllInActivePrinterList() {
+    return this.getInActivePrinterList().
+      subscribe((data) => {
+        console.log(data);
+        this.printers = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllDeletedPrinterList() {
+    return this.getDeletedPrinterList().
       subscribe((data) => {
         console.log(data);
         this.printers = data;
@@ -117,7 +151,7 @@ export class PrinterComponent implements OnInit {
   
       if (result.value) {
         console.log("hello");
-        this.http.delete<PrinterInfoRequest>(environment.smartSafeAPIUrl + "/printer/" + printer.id, this.httpOptions).subscribe(
+        this.http.delete<PrinterInfoRequest>(environment.smartSafeAPIUrl + "/printer/deactive/" + printer.id, this.httpOptions).subscribe(
           res => {
             console.log(res);
             //event.confirm.resolve(event.newData);
@@ -141,9 +175,27 @@ export class PrinterComponent implements OnInit {
   
   }
 }
+filterOption: string = 'active'; // default value
+  onFilterChange(): void {debugger;
+    console.log('Selected filter option-----------:', this.filterOption);
+    // Add your logic here to handle the filter change
+    if (this.filterOption === 'all') {
+      this.getAllPrinterList()
+    } else if (this.filterOption === 'active') {
+      this.getAllActivePrinterList();
+      //return this.users.filter(user => user.active);
+    } else if (this.filterOption === 'inactive') {
+      this.getAllInActivePrinterList()
+      //return this.users.filter(user => !user.active);
+    } else if (this.filterOption === 'deleted') {
+      this.getAllDeletedPrinterList()
+      //return this.users.filter(user => user.deleted); // Assuming you have a deleted property
+    }
+    //return this.users;
+  }
 
   ngOnInit() {
-    this.getAllPrinterList();
+    this.getAllActivePrinterList();
   }
 
 displayStyle1 = "none";

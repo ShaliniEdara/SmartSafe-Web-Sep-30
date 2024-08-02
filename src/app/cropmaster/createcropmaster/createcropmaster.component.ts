@@ -43,11 +43,47 @@ export class CreatecropmasterComponent implements OnInit {
    dynamicText:string;
 
 
-  getCropList() {
+   getCropList() {
     return this.http.get<Corp[]>(environment.smartSafeAPIUrl + '/corp/all');
+  }
+  getActiveCropList() {
+    return this.http.get<Corp[]>(environment.smartSafeAPIUrl + '/corp/active/all');
+  }
+
+  getInActiveCropList() {
+    return this.http.get<Corp[]>(environment.smartSafeAPIUrl + '/corp/inactive/all');
+  }
+  getDeletedCropList() {
+    return this.http.get<Corp[]>(environment.smartSafeAPIUrl + '/corp/deleted/all');
   }
   getAllCropList() {
     return this.getCropList().
+      subscribe((data) => {
+        console.log(data);
+        this.corps = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+  getAllActiveCropList() {
+    return this.getActiveCropList().
+      subscribe((data) => {
+        console.log(data);
+        this.corps = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+
+  getAllInActiveCropList() {
+    return this.getInActiveCropList().
+      subscribe((data) => {
+        console.log(data);
+        this.corps = data;
+        this.changeDetectorRefs.markForCheck();
+      });
+  }
+
+  getAllDeletedCropList() {
+    return this.getDeletedCropList().
       subscribe((data) => {
         console.log(data);
         this.corps = data;
@@ -118,7 +154,7 @@ export class CreatecropmasterComponent implements OnInit {
   
       if (result.value) {
         console.log("hello");
-        this.http.delete<Corp>(environment.smartSafeAPIUrl + "/corp/" + corp.id, this.httpOptions).subscribe(
+        this.http.delete<Corp>(environment.smartSafeAPIUrl + "/corp/deactivate/" + corp.id, this.httpOptions).subscribe(
           res => {
             console.log(res);
             //event.confirm.resolve(event.newData);
@@ -142,8 +178,27 @@ export class CreatecropmasterComponent implements OnInit {
   
   }
 }
+filterOption: string = 'active'; // default value
+  onFilterChange(): void {debugger;
+    console.log('Selected filter option-----------:', this.filterOption);
+    // Add your logic here to handle the filter change
+    if (this.filterOption === 'all') {
+      this.getAllCropList()
+    } else if (this.filterOption === 'active') {
+      this.getAllActiveCropList();
+      //return this.users.filter(user => user.active);
+    } else if (this.filterOption === 'inactive') {
+      this. getAllInActiveCropList()
+      //return this.users.filter(user => !user.active);
+    } else if (this.filterOption === 'deleted') {
+      this.getAllDeletedCropList()
+      //return this.users.filter(user => user.deleted); // Assuming you have a deleted property
+    }
+    //return this.users;
+  }
+
 ngOnInit() {
-  this.getAllCropList();
+  this.getAllActiveCropList();
   }
 
   }

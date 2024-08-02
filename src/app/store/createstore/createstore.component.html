@@ -321,6 +321,14 @@
         <div class="card-body">
           <div class="form-group">
             <section id="simple">
+              <div class=" col-md-4 ">
+                <select [(ngModel)]="filterOption" class="form-control" (change)="onFilterChange()">
+                  <option value="all">All</option>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                  <option value="deleted">Deleted</option>
+              </select>
+            </div>
 
               <!-- <div class="col-sm-6">
                 <form storeInfoRequest="search">

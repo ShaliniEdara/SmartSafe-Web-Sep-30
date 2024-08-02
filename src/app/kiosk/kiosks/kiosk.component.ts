@@ -48,8 +48,41 @@ export class KioskComponent implements OnInit {
 getKioskList() {
   return this.http.get<KioskInfoRequest[]>(environment.smartSafeAPIUrl + '/kiosk/all');
 }
+getActiveKioskList() {
+  return this.http.get<KioskInfoRequest[]>(environment.smartSafeAPIUrl + '/kiosk/active/all');
+}
+getInActiveKioskList() {
+  return this.http.get<KioskInfoRequest[]>(environment.smartSafeAPIUrl + '/kiosk/inactive/all');
+}
+getDeletedKioskList() {
+  return this.http.get<KioskInfoRequest[]>(environment.smartSafeAPIUrl + '/kiosk/deleted/all');
+}
 getAllKioskList() {
   return this.getKioskList().
+    subscribe((data) => {
+      console.log(data);
+      this.kiosks = data;
+      this.changeDetectorRefs.markForCheck();
+    });
+}
+getAllActiveKioskList() {
+  return this.getActiveKioskList().
+    subscribe((data) => {
+      console.log(data);
+      this.kiosks = data;
+      this.changeDetectorRefs.markForCheck();
+    });
+}
+getAllInActiveKioskList() {
+  return this.getInActiveKioskList().
+    subscribe((data) => {
+      console.log(data);
+      this.kiosks = data;
+      this.changeDetectorRefs.markForCheck();
+    });
+}
+getAllDeletedKioskList() {
+  return this.getDeletedKioskList().
     subscribe((data) => {
       console.log(data);
       this.kiosks = data;
@@ -117,7 +150,7 @@ kioskdelete(kiosk: KioskInfoRequest) {
 
     if (result.value) {
       console.log("hello");
-      this.http.delete<KioskInfoRequest>(environment.smartSafeAPIUrl + "/kiosk/" + kiosk.id, this.httpOptions).subscribe(
+      this.http.delete<KioskInfoRequest>(environment.smartSafeAPIUrl + "/kiosk/deactivate/" + kiosk.id, this.httpOptions).subscribe(
         res => {
           console.log(res);
           //event.confirm.resolve(event.newData);
@@ -146,10 +179,28 @@ Kioskpopup(){
           this.openPopup();
           this.popupid = "raise_request";
 }
+filterOption: string = 'active'; // default value
+  onFilterChange(): void {debugger;
+    console.log('Selected filter option-----------:', this.filterOption);
+    // Add your logic here to handle the filter change
+    if (this.filterOption === 'all') {
+      this.getAllKioskList()
+    } else if (this.filterOption === 'active') {
+      this.getAllActiveKioskList();
+      //return this.users.filter(user => user.active);
+    } else if (this.filterOption === 'inactive') {
+      this.getAllInActiveKioskList()
+      //return this.users.filter(user => !user.active);
+    } else if (this.filterOption === 'deleted') {
+      this.getAllDeletedKioskList()
+      //return this.users.filter(user => user.deleted); // Assuming you have a deleted property
+    }
+    //return this.users;
+  }
 
 
   ngOnInit() {
-    this.getAllKioskList();
+    this.getAllActiveKioskList();
     this.Kioskpopup();
   }
   displayStyle1 = "none";
