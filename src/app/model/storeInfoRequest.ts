@@ -42,6 +42,12 @@ export class StoreInfoRequest {
 
 	 // corp:any;
 
+	 mainSafe: string;
+
+	 shiftManagerSafe: string;
+
+	 drawers: string;
+
 
 
 }

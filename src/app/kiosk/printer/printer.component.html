@@ -39,7 +39,7 @@
                         <span class=" text-muted danger" *ngIf="!printerNo.valid && (printerNo.dirty || printerNo.touched)">
                           is required!
                         </span>
-                        <input type="number" id="printerNo" class="form-control border-primary" name="printerNo"
+                        <input type="text" id="printerNo" class="form-control border-primary" name="printerNo"
                           [(ngModel)]="printer.printerNo" ngModel #printerNo="ngModel" required>
                        
                         </div>
@@ -48,13 +48,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="printerName"><span *ngIf="printer.printerName == undefined || printer.printerName =='' "
-                            style="color: red">*</span>Printer Name
+                            style="color: red"></span>Printer Name
                         </label>
-                        <span class=" text-muted danger" *ngIf="!printerName.valid && (printerName.dirty || printerName.touched)">
+                        <!-- <span class=" text-muted danger" *ngIf="!printerName.valid && (printerName.dirty || printerName.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="printerName" class="form-control border-primary" name="printerName"
-                          [(ngModel)]="printer.printerName" ngModel #printerName="ngModel" required>
+                          [(ngModel)]="printer.printerName" ngModel #printerName="ngModel">
                         </div>
                       </div>
                     </div>
@@ -62,27 +62,27 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="brandName"><span *ngIf="printer.brandName == undefined || printer.brandName =='' "
-                            style="color: red">*</span>Brand Name
+                            style="color: red"></span>Brand Name
                         </label>
-                        <span class=" text-muted danger"
+                        <!-- <span class=" text-muted danger"
                           *ngIf="!brandName.valid && (brandName.dirty || brandName.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="brandName" class="form-control border-primary" name="brandName"
-                          [(ngModel)]="printer.brandName" ngModel #brandName="ngModel" required>
+                          [(ngModel)]="printer.brandName" ngModel #brandName="ngModel">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="modelName"><span *ngIf="printer.modelName == undefined || printer.modelName =='' "
-                            style="color: red">*</span>Model Name
+                            style="color: red"></span>Model Name
                         </label>
-                        <span class=" text-muted danger"
+                        <!-- <span class=" text-muted danger"
                           *ngIf="!modelName.valid && (modelName.dirty || modelName.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="modelName" class="form-control border-primary" name="modelName"
-                          [(ngModel)]="printer.modelName" ngModel #modelName="ngModel" required>
+                          [(ngModel)]="printer.modelName" ngModel #modelName="ngModel">
 
                         </div>
                       </div>
@@ -92,28 +92,28 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="machineType"><span *ngIf="printer.machineType == undefined || printer.machineType =='' "
-                            style="color: red">*</span>Machine Type
+                            style="color: red"></span>Machine Type
                         </label>
-                        <span class=" text-muted danger"
+                        <!-- <span class=" text-muted danger"
                           *ngIf="!machineType.valid && (machineType.dirty || machineType.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="machineType" class="form-control border-primary" name="machineType"
-                          [(ngModel)]="printer.machineType" ngModel #machineType="ngModel" required>
+                          [(ngModel)]="printer.machineType" ngModel #machineType="ngModel">
 
                         </div>
                       </div>
                       <div class="col-md-6">
 
                         <label for="printCapacity"><span *ngIf="printer.printCapacity == undefined || printer.printCapacity =='' "
-                          style="color: red">*</span>Print Capacity
+                          style="color: red"></span>Print Capacity
                       </label>
-                      <span class=" text-muted danger"
+                      <!-- <span class=" text-muted danger"
                         *ngIf="!printCapacity.valid && (printCapacity.dirty || printCapacity.touched)">
                         is required!
-                      </span>
+                      </span> -->
                       <input type="number" id="printCapacity" class="form-control border-primary" name="printCapacity"
-                        [(ngModel)]="printer.printCapacity" ngModel #printCapacity="ngModel" required>
+                        [(ngModel)]="printer.printCapacity" ngModel #printCapacity="ngModel">
 
                         </div>
                       </div>

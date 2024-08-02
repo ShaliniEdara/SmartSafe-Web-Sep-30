@@ -31,6 +31,12 @@ export class KioskComponent implements OnInit {
   kiosks : KioskInfoRequest[];
   ips : KioskInfoRequest[];
 
+  displayStyle = "none";
+  dynamicText:string;
+  popupid:string = "raise_request";
+  openPopup() {
+    this.displayStyle = "block";
+}
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -58,6 +64,7 @@ AddKiosk() {
       this.service.addSuccess();
       this.getAllKioskList();
       this.addClassForm.reset();
+      
 
     },
     (err: HttpErrorResponse) => {
@@ -134,14 +141,44 @@ kioskdelete(kiosk: KioskInfoRequest) {
 
 }
 }
-
+Kioskpopup(){
+  this.dynamicText = "Now We have to Run System Kiosk Details";
+          this.openPopup();
+          this.popupid = "raise_request";
+}
 
 
   ngOnInit() {
     this.getAllKioskList();
+    this.Kioskpopup();
+  }
+  displayStyle1 = "none";
+  dynamicText2:string;
+
+  openPopup1() {
+    this.displayStyle1 = "block";
+  }
+
+  onSaveConfirm1() {
+
+        this.dynamicText2 = "Hey.... Now, You need to Create BillValidator...";
+        this.openPopup1();
+        this.popupid = "raise_request";
+        
+  }
+
+  closePopup() {
     
-
-
+    this.displayStyle= "none";
+    this.onSaveConfirm1();
+   
+  }
+    
+  closePopup1() {
+    this.displayStyle1 = "none";
+    if(this.dynamicText2=="Hey.... Now, You need to Create BillValidator..."){
+      this.router.navigateByUrl('/kiosk/bill-validator');
+    }
   }
 
 }

@@ -39,7 +39,7 @@
                         <span class=" text-muted danger" *ngIf="!digitalLockNo.valid && (digitalLockNo.dirty || digitalLockNo.touched)">
                           is required!
                         </span>
-                        <input type="number" id="digitalLockNo" class="form-control border-primary" name="digitalLockNo"
+                        <input type="text" id="digitalLockNo" class="form-control border-primary" name="digitalLockNo"
                           [(ngModel)]="lock.digitalLockNo" ngModel #digitalLockNo="ngModel" required>
                        
                         </div>
@@ -48,13 +48,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="lockName"><span *ngIf="lock.digitalLockName == undefined || lock.digitalLockName =='' "
-                            style="color: red">*</span>Digital Lock Name
+                            style="color: red"></span>Digital Lock Name
                         </label>
-                        <span class=" text-muted danger" *ngIf="!digitalLockName.valid && (digitalLockName.dirty || digitalLockName.touched)">
+                        <!-- <span class=" text-muted danger" *ngIf="!digitalLockName.valid && (digitalLockName.dirty || digitalLockName.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="digitalLockName" class="form-control border-primary" name="digitalLockName"
-                          [(ngModel)]="lock.digitalLockName" ngModel #digitalLockName="ngModel" required>
+                          [(ngModel)]="lock.digitalLockName" ngModel #digitalLockName="ngModel">
                         </div>
                       </div>
                     </div>
@@ -62,27 +62,27 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="brandName"><span *ngIf="lock.brandName == undefined || lock.brandName =='' "
-                            style="color: red">*</span>Brand Name
+                            style="color: red"></span>Brand Name
                         </label>
-                        <span class=" text-muted danger"
+                        <!-- <span class=" text-muted danger"
                           *ngIf="!brandName.valid && (brandName.dirty || brandName.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="brandName" class="form-control border-primary" name="brandName"
-                          [(ngModel)]="lock.brandName" ngModel #brandName="ngModel" required>
+                          [(ngModel)]="lock.brandName" ngModel #brandName="ngModel" >
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="modelName"><span *ngIf="lock.modelName == undefined || lock.modelName =='' "
-                            style="color: red">*</span>Model Name
+                            style="color: red"></span>Model Name
                         </label>
-                        <span class=" text-muted danger"
+                        <!-- <span class=" text-muted danger"
                           *ngIf="!modelName.valid && (modelName.dirty || modelName.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="modelName" class="form-control border-primary" name="modelName"
-                          [(ngModel)]="lock.modelName" ngModel #modelName="ngModel" required>
+                          [(ngModel)]="lock.modelName" ngModel #modelName="ngModel">
 
                         </div>
                       </div>
@@ -92,28 +92,28 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="machineType"><span *ngIf="lock.machineType == undefined || lock.machineType =='' "
-                            style="color: red">*</span>Machine Type
+                            style="color: red"></span>Machine Type
                         </label>
-                        <span class=" text-muted danger"
+                        <!-- <span class=" text-muted danger"
                           *ngIf="!machineType.valid && (machineType.dirty || machineType.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="machineType" class="form-control border-primary" name="machineType"
-                          [(ngModel)]="lock.machineType" ngModel #machineType="ngModel" required>
+                          [(ngModel)]="lock.machineType" ngModel #machineType="ngModel">
 
                         </div>
                       </div>
                       <div class="col-md-6">
 
                         <label for="connectors"><span *ngIf="lock.connectors == undefined || lock.connectors =='' "
-                          style="color: red">*</span>Connectors
+                          style="color: red"></span>Connectors
                       </label>
-                      <span class=" text-muted danger"
+                      <!-- <span class=" text-muted danger"
                         *ngIf="!connectors.valid && (connectors.dirty || connectors.touched)">
                         is required!
-                      </span>
+                      </span> -->
                       <input type="text" id="connectors" class="form-control border-primary" name="connectors"
-                        [(ngModel)]="lock.connectors" ngModel #connectors="ngModel" required>
+                        [(ngModel)]="lock.connectors" ngModel #connectors="ngModel">
 
                         </div>
                       </div>

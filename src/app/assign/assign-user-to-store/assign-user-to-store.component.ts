@@ -135,7 +135,7 @@ displayStyle1 = "none";
 
   onSaveConfirm1() {
 
-        this.dynamicText2 = "Hey.... Now, You need to Create System Kiosk and BillValidator...";
+        this.dynamicText2 = "Hey.... Now, You need to Create System Kiosk Details...";
         this.openPopup1();
         this.popupid = "raise_request";
         
@@ -150,8 +150,8 @@ displayStyle1 = "none";
     
   closePopup1() {
     this.displayStyle1 = "none";
-    if(this.dynamicText2=="Hey.... Now, You need to Create System Kiosk and BillValidator..."){
-      this.router.navigateByUrl('/kiosk/bill-validator');
+    if(this.dynamicText2=="Hey.... Now, You need to Create System Kiosk Details..."){
+      this.router.navigateByUrl('/kiosk/newkiosk');
     }
   }
 

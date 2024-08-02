@@ -1,0 +1,48 @@
+.tree-add-btn {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.add-input-container {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.tree-add-input {
+  padding: 5px;
+  width: 200px;
+}
+
+.assigned {
+  color: green;
+}
+
+.unassigned {
+  color: red;
+}
+
+.tree-container {
+  margin-left: 20px;
+}
+
+.tree-item-content {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjusts space between elements */
+  margin: 5px 0;
+}
+
+.tree-checkbox {
+  margin-right: 10px; /* Adjusts space between checkbox and text */
+}
+
+.tree-item-label {
+  cursor: pointer;
+}
+
+.tree-children {
+  margin-left: 20px; /* Adjusts indentation for child items */
+  display: flex;
+  flex-direction: column;
+}

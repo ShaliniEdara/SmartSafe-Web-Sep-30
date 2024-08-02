@@ -24,58 +24,74 @@
               <div class="col-md-12">
                 <form class="form" #addClassForm="ngForm" novalidate>
                   <div class="form-body">
-
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="name" class="form-control-label"><span *ngIf="role.name == undefined || role.name =='' "
-                              style="color: red">*</span>Enter Role Name
+                          <label for="name" class="form-control-label">
+                            <span *ngIf="role.name == undefined || role.name =='' " style="color: red">*</span>
+                            Enter Role Name
                           </label>
-                          <span class=" text-muted danger" *ngIf="!name.valid && (name.dirty || name.touched)">
+                          <span class="text-muted danger" *ngIf="!name.valid && (name.dirty || name.touched)">
                             is required!
                           </span>
                           <input type="text" id="name" class="form-control border-primary" name="name"
                             [(ngModel)]="role.name" ngModel #name="ngModel" required>
-
                         </div>
                       </div>
+                    
+                  
+                    <!-- Checkboxes below the role name -->
+                    
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="description"><span *ngIf="role.description == undefined || role.description =='' "
-                              style="color: red">*</span>Description
+                          <label class="d-block">Roles</label>      
+                          <input type="checkbox" id="web-role" name="webRole" [(ngModel)]="role.webRole" ngModel>
+                          <label for="web-role" class="ml-2">Web Role</label>   
+                          <input type="checkbox" id="kiosk-role" name="kioskRole" [(ngModel)]="role.kioskRole" ngModel>
+                          <label for="kiosk-role" class="ml-2">Kiosk Role</label>
+                        </div>
+                      </div>
+                      <!-- <div class="col-md-2">
+                        <div class="form-group">
+                          <input type="checkbox" id="kiosk-role" name="kioskRole" [(ngModel)]="role.kioskRole" ngModel>
+                          <label for="kiosk-role" class="ml-2">Kiosk Role</label>
+                        </div>
+                      </div> -->
+                    </div>
+                  
+                    <!-- Description and Status below the checkboxes -->
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="description">
+                            <span *ngIf="role.description == undefined || role.description =='' " style="color: red">*</span>
+                            Description
                           </label>
-                          <span class=" text-muted danger"
-                            *ngIf="!description.valid && (description.dirty || description.touched)">
+                          <span class="text-muted danger" *ngIf="!description.valid && (description.dirty || description.touched)">
                             is required!
                           </span>
                           <input type="text" id="description" class="form-control border-primary" name="description"
                             [(ngModel)]="role.description" ngModel #description="ngModel" required>
-
                         </div>
                       </div>
-
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="d-block">Status</label>
+                          <div class="input-group">
+                            <div class="custom-control custom-radio d-inline-block">
+                              <input type="radio" id="active" name="active" class="custom-control-input" [value]=true [(ngModel)]="role.active">
+                              <label class="custom-control-label" for="active">Active</label>
+                            </div>
+                            <div class="custom-control custom-radio d-inline-block ml-2">
+                              <input type="radio" id="inactive" name="inactive" class="custom-control-input" [value]=false [(ngModel)]="role.active">
+                              <label class="custom-control-label" for="inactive">Inactive</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-
-                  <!-- role active inactive -->
-                  <!-- <div class="col-md-4">
-                      <div class="form-group">
-                        <label class="d-block">Status</label>
-                        <div class="input-group">
-                          <div class="custom-control custom-radio d-inline-block float-left">
-                            <input type="radio" checked id="active" name="active" class="custom-control-input"
-                              [value]=true [(ngModel)]="role.active">
-                            <label class="custom-control-label" for="active">Active</label>
-                          </div>
-                          <div class="custom-control custom-radio d-inline-block float-left ml-1">
-                            <input type="radio" id="inactive" name="inactive" class="custom-control-input" [value]=false
-                              [(ngModel)]="role.active">
-                            <label class="custom-control-label" for="inactive">In Active</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>  
-                   -->  <!-- role avtive in active -->
                   </div>
+                  
                   <div class="form-actions center">
 
                     <button type="button" class="btn btn-raised btn-primary mr-1" (click)="addRole()"

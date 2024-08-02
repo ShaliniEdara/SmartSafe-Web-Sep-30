@@ -17,5 +17,7 @@ export class BillValidatorInfoRequest{
 
     active:boolean;
 
+    billAmountCapacity:string;
+
 
 }

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { environment } from 'environments/environment';
 import { NGXToastrService } from 'app/service/toastr.service';
 import { Role } from 'app/model/role';
-import { NgForm } from '@angular/forms';
+import { NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-add-user-management',
@@ -124,21 +124,27 @@ export class AddUserManagementComponent implements OnInit {
 
 
   formatPhoneNumber(event: any) {
-    const input = event.target;
-    const inputValue = input.value.replace(/\D/g, ''); // Remove non-digit characters
+     const input = event.target;
+     const inputValue = input.value.replace(/\D/g, '').trim(); // Remove non-digit characters
+     //const inputValue = input?.value?.replace(/\D/g, '') || '';
 
     if (inputValue.length <= 10) {
       input.value = inputValue.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+      this.addClassForm.form.controls['mobile'].setValue(input.value);
     } else {
       // Truncate extra characters
       input.value = inputValue.slice(0, 10).replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+      this.addClassForm.form.controls['mobile'].setValue(input.value);
     }
+    
+    console.log('Formatted phone number:', input.value.trim());
+       
   }
+ 
 
   ngOnInit() {
     
     this.getAllRolesList();
-    
   }
   
 

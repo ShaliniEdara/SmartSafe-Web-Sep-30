@@ -119,6 +119,20 @@
 
                     </div>
                     <div class="row">
+
+                      <!-- <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="billAmountCapacity"><span *ngIf="billValidator.billAmountCapacity == undefined || billValidator.billAmountCapacity =='' "
+                              style="color: red">*</span>Cash Capacity
+                          </label>
+                          <span class=" text-muted danger"
+                            *ngIf="!billAmountCapacity.valid && (billAmountCapacity.dirty || billAmountCapacity.touched)">
+                            is required!
+                          </span>
+                          <input type="number" id="billAmountCapacity" class="form-control border-primary" name="billAmountCapacity"
+                            [(ngModel)]="billValidator.billAmountCapacity" ngModel #billAmountCapacity="ngModel" required>
+                        </div>
+                      </div> -->
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="d-block">Status</label>

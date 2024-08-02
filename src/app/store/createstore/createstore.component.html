@@ -60,13 +60,13 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="corpStoreNo"><span *ngIf="storeInfoRequest.corpStoreNo == undefined || storeInfoRequest.corpStoreNo =='' "
-                              style="color: red">*</span>Location Number
+                              style="color: red"></span>Location Number
                           </label>
-                          <span class=" text-muted danger" *ngIf="!corpStoreNo.valid && (corpStoreNo.dirty || corpStoreNo.touched)">
+                          <!-- <span class=" text-muted danger" *ngIf="!corpStoreNo.valid && (corpStoreNo.dirty || corpStoreNo.touched)">
                             is required!
-                          </span>
+                          </span> -->
                           <input type="number" id="corpStoreNo" class="form-control border-primary" name="corpStoreNo"
-                            [(ngModel)]="storeInfoRequest.corpStoreNo" ngModel #corpStoreNo="ngModel" required>
+                            [(ngModel)]="storeInfoRequest.corpStoreNo" ngModel #corpStoreNo="ngModel">
 
                         </div>
                       </div>
@@ -79,7 +79,7 @@
                             *ngIf="!serialNumber.valid && (serialNumber.dirty || serialNumber.touched)">
                             is required!
                           </span>
-                          <input type="number" id="serialNumber" class="form-control border-primary" name="serialNumber"
+                          <input type="text" id="serialNumber" class="form-control border-primary" name="serialNumber"
                             [(ngModel)]="storeInfoRequest.serialNumber" ngModel #serialNumber="ngModel" required>
 
                         </div>
@@ -104,14 +104,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="streetName"><span *ngIf="storeInfoRequest.streetName == undefined || storeInfoRequest.streetName =='' "
-                              style="color: red">*</span>Street Name
+                              style="color: red"></span>Street Name
                           </label>
-                          <span class=" text-muted danger"
+                          <!-- <span class=" text-muted danger"
                             *ngIf="!streetName.valid && (streetName.dirty || streetName.touched)">
                             is required!
-                          </span>
+                          </span> -->
                           <input type="text" id="streetName" class="form-control border-primary" name="streetName"
-                            [(ngModel)]="storeInfoRequest.streetName" ngModel #streetName="ngModel" required>
+                            [(ngModel)]="storeInfoRequest.streetName" ngModel #streetName="ngModel">
 
                         </div>
                       </div>
@@ -119,14 +119,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="cityName"><span *ngIf="storeInfoRequest.cityName == undefined || storeInfoRequest.cityName =='' "
-                              style="color: red">*</span>City Name
+                              style="color: red"></span>City Name
                           </label>
-                          <span class=" text-muted danger"
+                          <!-- <span class=" text-muted danger"
                             *ngIf="!cityName.valid && (cityName.dirty || cityName.touched)">
                             is required!
-                          </span>
+                          </span> -->
                           <input type="text" id="cityName" class="form-control border-primary" name="cityName"
-                            [(ngModel)]="storeInfoRequest.cityName" ngModel #cityName="ngModel" required>
+                            [(ngModel)]="storeInfoRequest.cityName" ngModel #cityName="ngModel">
 
                         </div>
                       </div>
@@ -135,14 +135,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="stateName"><span *ngIf="storeInfoRequest.stateName == undefined || storeInfoRequest.stateName =='' "
-                              style="color: red">*</span>State Name
+                              style="color: red"></span>State Name
                           </label>
-                          <span class=" text-muted danger"
+                          <!-- <span class=" text-muted danger"
                             *ngIf="!stateName.valid && (stateName.dirty || stateName.touched)">
                             is required!
-                          </span>
+                          </span> -->
                           <input type="text" id="stateName" class="form-control border-primary" name="stateName"
-                            [(ngModel)]="storeInfoRequest.stateName" ngModel #stateName="ngModel" required>
+                            [(ngModel)]="storeInfoRequest.stateName" ngModel #stateName="ngModel">
 
                         </div>
                       </div>
@@ -150,14 +150,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="zipCode"><span *ngIf="storeInfoRequest.zipCode == undefined || storeInfoRequest.zipCode =='' "
-                              style="color: red">*</span>Zip Code
+                              style="color: red"></span>Zip Code
                           </label>
-                          <span class=" text-muted danger"
+                          <!-- <span class=" text-muted danger"
                             *ngIf="!zipCode.valid && (zipCode.dirty || zipCode.touched)">
                             is required!
-                          </span>
+                          </span> -->
                           <input type="text" id="zipCode" class="form-control border-primary" name="zipCode"
-                            [(ngModel)]="storeInfoRequest.zipCode" ngModel #zipCode="ngModel" required>
+                            [(ngModel)]="storeInfoRequest.zipCode" ngModel #zipCode="ngModel">
 
                         </div>
                       </div>
@@ -165,29 +165,29 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="bankName"><span *ngIf="storeInfoRequest.bankName == undefined || storeInfoRequest.bankName =='' "
-                              style="color: red">*</span>Bank Name
+                              style="color: red"></span>Bank Name
                           </label>
-                          <span class=" text-muted danger"
+                          <!-- <span class=" text-muted danger"
                             *ngIf="!bankName.valid && (bankName.dirty || bankName.touched)">
                             is required!
-                          </span>
+                          </span> -->
                           <input type="text" id="bankName" class="form-control border-primary" name="bankName"
-                            [(ngModel)]="storeInfoRequest.bankName" ngModel #bankName="ngModel" required>
+                            [(ngModel)]="storeInfoRequest.bankName" ngModel #bankName="ngModel">
 
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="accountNumber"><span *ngIf="storeInfoRequest.accountNumber == undefined || storeInfoRequest.accountNumber =='' "
-                              style="color: red">*</span>Account Number
+                              style="color: red"></span>Account Number
                           </label>
-                          <span class=" text-muted danger"
+                          <!-- <span class=" text-muted danger"
                             *ngIf="!accountNumber.valid && (accountNumber.dirty || accountNumber.touched)">
                             <span *ngIf="accountNumber.errors.required"> is required!</span>
                             <span *ngIf="accountNumber.errors.maxlength"> plz enter valid Account number!</span>
-                             </span>
+                             </span> -->
                           <input type="number" id="accountNumber" class="form-control border-primary" name="accountNumber"
-                            [(ngModel)]="storeInfoRequest.accountNumber" ngModel #accountNumber="ngModel" required   maxlength="15">
+                            [(ngModel)]="storeInfoRequest.accountNumber" ngModel #accountNumber="ngModel"  maxlength="15">
 
                        
                       </div>
@@ -195,15 +195,15 @@
                       
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="minimumBalance"><span *ngIf="storeInfoRequest.minimumBalance == undefined || storeInfoRequest.minimumBalance =='' "
-                                style="color: red">*</span>Stand Bank amount
+                            <label for="mainSafe"><span *ngIf="storeInfoRequest.mainSafe == undefined || storeInfoRequest.mainSafe =='' "
+                                style="color: red"></span>Main Safe Amount
                             </label>
-                            <span class=" text-muted danger"
+                            <!-- <span class=" text-muted danger"
                               *ngIf="!minimumBalance.valid && (minimumBalance.dirty || minimumBalance.touched)">
                               is required!
-                            </span>
-                            <input type="number" id="minimumBalance" class="form-control border-primary" name="minimumBalance"
-                              [(ngModel)]="storeInfoRequest.minimumBalance" ngModel #minimumBalance="ngModel" required>
+                            </span> -->
+                            <input type="number" id="mainSafe" class="form-control border-primary" name="mainSafe"
+                              [(ngModel)]="storeInfoRequest.mainSafe" ngModel #mainSafe="ngModel">
   
                           </div>
                         </div>
@@ -211,20 +211,52 @@
                         
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="startTime"><span *ngIf="storeInfoRequest.startTime == undefined || storeInfoRequest.startTime =='' "
-                                style="color: red">*</span>EOD Processing StartTime 
+                            <label for="shiftManagerSafe"><span *ngIf="storeInfoRequest.shiftManagerSafe == undefined || storeInfoRequest.shiftManagerSafe =='' "
+                                style="color: red"></span>Shift Manager Safe Amount
                             </label>
-                            <span class=" text-muted danger"
-                              *ngIf="!startTime.valid && (startTime.dirty || startTime.touched)">
-                              is required!
-                            </span>
-                            <input type="time" id="startTime" class="form-control border-primary" name="startTime"
-                              [(ngModel)]="storeInfoRequest.startTime" ngModel #startTime="ngModel" required>
+                            <input type="number" id="shiftManagerSafe" class="form-control border-primary" name="shiftManagerSafe"
+                              [(ngModel)]="storeInfoRequest.shiftManagerSafe" ngModel #shiftManagerSafe="ngModel">
+    
                           </div>
                         </div>
                     
                     </div>
+                    <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="drawers"><span *ngIf="storeInfoRequest.drawers == undefined || storeInfoRequest.drawers =='' "
+                            style="color: red"></span>Drawers Amount
+                        </label>
+                        <input type="number" id="drawers" class="form-control border-primary" name="drawers"
+                          [(ngModel)]="storeInfoRequest.drawers" ngModel #drawers="ngModel">
 
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="minimumBalance"><span *ngIf="storeInfoRequest.minimumBalance == undefined || storeInfoRequest.minimumBalance =='' "
+                            style="color: red"></span>StandBank Balance
+                        </label>
+                        <input type="number" id="minimumBalance" class="form-control border-primary" name="minimumBalance"
+                          [(ngModel)]="storeInfoRequest.minimumBalance" ngModel #minimumBalance="ngModel">
+
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="startTime"><span *ngIf="storeInfoRequest.startTime == undefined || storeInfoRequest.startTime =='' "
+                            style="color: red">*</span>EOD Processing StartTime 
+                        </label>
+                        <span class=" text-muted danger"
+                          *ngIf="!startTime.valid && (startTime.dirty || startTime.touched)">
+                          is required!
+                        </span>
+                        <input type="time" id="startTime" class="form-control border-primary" name="startTime"
+                          [(ngModel)]="storeInfoRequest.startTime" ngModel #startTime="ngModel" required>
+                      </div>
+                    </div>
+                  </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -337,7 +369,7 @@
 
                         </button>
                       </td>
-
+                      
                       <td>
                         <button type="button" class="btn btn-raised" disabled style="cursor:default"
                         [ngClass]="{' btn-primary' : storeInfoRequest.configured,'btn-warning' :!storeInfoRequest.configured }">
