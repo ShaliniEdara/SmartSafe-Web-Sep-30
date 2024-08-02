@@ -12,6 +12,10 @@ export class Role{
 	features:string[];
 	
 	active:boolean;
+	
+  permissions: any;
+
+  additionalPermissions: { [key: string]: boolean };
 
 
 }

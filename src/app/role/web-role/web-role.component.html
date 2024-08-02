@@ -1,0 +1,101 @@
+<section id="image">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="container-fluid">
+          <div class="row text-left">
+            <div class="col-md-8">
+              <br>
+              <p class="content-sub-header">
+                <a routerLink="/dashboard">
+                  <span style="font-size: 15px">Home</span>
+                </a>
+                <span style="font-size: 15px">/Assign Permissions</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4>Assign Permissions</h4>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <div class="col-md-12">
+              <form class="form" #addClassForm="ngForm" novalidate>
+                <div class="form-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <fieldset class="form-group">
+                          <label for="roleSelect">Role Type</label>
+                          <select class="form-control border-primary" [(ngModel)]="selectedRole" required id="role" name="role">
+                            <option value="">Select Role Name</option>
+                            <option *ngFor="let role of roles" [ngValue]="role">{{ role.name }}</option>
+                          </select>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <strong>Permissions</strong><br>
+                <div class="tree-container">
+                  <div *ngFor="let node of dataSource" class="tree-item">
+                    <div class="tree-item-content">
+                      <i *ngIf="isExpandable(node)" (click)="toggleExpand(node)" class="fa" [ngClass]="{'fa-caret-right': !node.expanded, 'fa-caret-down': node.expanded}"></i>
+                      <input type="checkbox" [checked]="isSelected(node)" (change)="todoItemSelectionToggle(node)" class="tree-checkbox">
+                      <span (click)="toggleExpand(node)" class="tree-item-label">{{ node.item }}</span>
+                    </div>
+                    <div *ngIf="isExpandable(node) && node.expanded" class="tree-children">
+                      <div *ngFor="let child of node.children" class="tree-item">
+                        <div class="tree-item-content">
+                          <i *ngIf="isExpandable(child)" (click)="toggleExpand(child)" class="fa" [ngClass]="{'fa-caret-right': !child.expanded, 'fa-caret-down': child.expanded}"></i>
+                          <input type="checkbox" [checked]="isSelected(child)" (change)="todoItemSelectionToggle(child)" class="tree-checkbox">
+                          <span (click)="toggleExpand(child)" class="tree-item-label">{{ child.item }}</span>
+                        </div>
+                        <div *ngIf="isExpandable(child) && child.expanded" class="tree-children">
+                          <div *ngFor="let grandChild of child.children" class="tree-item">
+                            <input type="checkbox" [checked]="isSelected(grandChild)" (change)="todoItemSelectionToggle(grandChild)" class="tree-checkbox">
+                            <span class="tree-item-label">{{ grandChild.item }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-actions center">
+                  <button type="button" class="btn btn-raised btn-primary mr-1" (click)="assignPermissions()">
+                    <i class="fa fa-check-square-o"></i> Assign Permissions
+                  </button>
+                </div>
+                <div *ngIf="selectedRole" class="permissions-table">
+                  <h5>Permissions for {{ selectedRole?.name }}</h5>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Modules</th>
+                        <th *ngFor="let role of roles">{{ role.name }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let node of flattenedDataSource()">
+                        <ng-container *ngIf="isPermissionAssigned(selectedRole, node)">
+                          <td>{{ node.item }}</td>
+                          <td *ngFor="let role of roles" [ngClass]="{'assigned': isPermissionAssigned(role, node), 'unassigned': !isPermissionAssigned(role, node)}">
+                            {{ isPermissionAssigned(role, node) ? 'Yes' : 'No' }}
+                          </td>
+                        </ng-container>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

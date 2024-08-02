@@ -111,20 +111,40 @@
                                     <input matInput class="form-control border-primary" id="accountNumber" type="number"
                                         name="accountNumber" [(ngModel)]="storeInfoRequest.accountNumber" readonly>
                                 </div>
-                            </div>
-                        
-
-
-                        
+                            </div> 
                           <div class="col-md-6">
                               <div class="form-group">
-                                  <label for="minimumBalance">Minimum Balance</label>
+                                  <label for="minimumBalance">StandBank Balance</label>
                                   <input class="form-control border-primary" type="number" id="minimumBalance"
                                       [(ngModel)]="storeInfoRequest.minimumBalance" name="minimumBalance">
                               </div>
                           </div>
                         </div>
                         <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label>Main Safe</label>
+                                  <input matInput class="form-control border-primary" id="mainSafe" type="number"
+                                      name="mainSafe" [(ngModel)]="storeInfoRequest.mainSafe">
+                              </div>
+                          </div> 
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="shiftManagerSafe">ShiftManager Safe</label>
+                                <input class="form-control border-primary" type="number" id="shiftManagerSafe"
+                                    [(ngModel)]="storeInfoRequest.shiftManagerSafe" name="shiftManagerSafe"> 
+                            </div>
+                        </div>
+                      </div>
+                        <div class="row">
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="drawers">Drawers</label>
+                                <input class="form-control border-primary" type="number" id="drawers"
+                                    [(ngModel)]="storeInfoRequest.drawers" name="drawers"> 
+                            </div>
+                        </div>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label class="d-block">Status</label>

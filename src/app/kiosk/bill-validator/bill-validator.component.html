@@ -39,7 +39,7 @@
                         <span class=" text-muted danger" *ngIf="!billAcceptorNo.valid && (billAcceptorNo.dirty || billAcceptorNo.touched)">
                           is required!
                         </span>
-                        <input type="number" id="billAcceptorNo" class="form-control border-primary" name="billAcceptorNo"
+                        <input type="text" id="billAcceptorNo" class="form-control border-primary" name="billAcceptorNo"
                           [(ngModel)]="billValidator.billAcceptorNo" ngModel #billAcceptorNo="ngModel" required>
                        
                         </div>
@@ -48,13 +48,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="billAcceptorName"><span *ngIf="billValidator.billAcceptorName == undefined || billValidator.billAcceptorName =='' "
-                            style="color: red">*</span>Bill Validator Name
+                            style="color: red"></span>Bill Validator Name
                         </label>
-                        <span class=" text-muted danger" *ngIf="!billAcceptorName.valid && (billAcceptorName.dirty || billAcceptorName.touched)">
+                        <!-- <span class=" text-muted danger" *ngIf="!billAcceptorName.valid && (billAcceptorName.dirty || billAcceptorName.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="billAcceptorName" class="form-control border-primary" name="billAcceptorName"
-                          [(ngModel)]="billValidator.billAcceptorName" ngModel #billAcceptorName="ngModel" required>
+                          [(ngModel)]="billValidator.billAcceptorName" ngModel #billAcceptorName="ngModel">
                         </div>
                       </div>
                     </div>
@@ -62,27 +62,27 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="brandName"><span *ngIf="billValidator.brandName == undefined || billValidator.brandName =='' "
-                            style="color: red">*</span>Brand Name
+                            style="color: red"></span>Brand Name
                         </label>
-                        <span class=" text-muted danger"
+                        <!-- <span class=" text-muted danger"
                           *ngIf="!brandName.valid && (brandName.dirty || brandName.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="brandName" class="form-control border-primary" name="brandName"
-                          [(ngModel)]="billValidator.brandName" ngModel #brandName="ngModel" required>
+                          [(ngModel)]="billValidator.brandName" ngModel #brandName="ngModel">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="modelName"><span *ngIf="billValidator.modelName == undefined || billValidator.modelName =='' "
-                            style="color: red">*</span>Model Name
+                            style="color: red"></span>Model Name
                         </label>
-                        <span class=" text-muted danger"
+                        <!-- <span class=" text-muted danger"
                           *ngIf="!modelName.valid && (modelName.dirty || modelName.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="modelName" class="form-control border-primary" name="modelName"
-                          [(ngModel)]="billValidator.modelName" ngModel #modelName="ngModel" required>
+                          [(ngModel)]="billValidator.modelName" ngModel #modelName="ngModel">
 
                         </div>
                       </div>
@@ -92,34 +92,48 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="machineType"><span *ngIf="billValidator.machineType == undefined || billValidator.machineType =='' "
-                            style="color: red">*</span>Machine Type
+                            style="color: red"></span>Machine Type
                         </label>
-                        <span class=" text-muted danger"
+                        <!-- <span class=" text-muted danger"
                           *ngIf="!machineType.valid && (machineType.dirty || machineType.touched)">
                           is required!
-                        </span>
+                        </span> -->
                         <input type="text" id="machineType" class="form-control border-primary" name="machineType"
-                          [(ngModel)]="billValidator.machineType" ngModel #machineType="ngModel" required>
+                          [(ngModel)]="billValidator.machineType" ngModel #machineType="ngModel">
 
                         </div>
                       </div>
                       <div class="col-md-6">
 
                         <label for="storageCapacity"><span *ngIf="billValidator.storageCapacity == undefined || billValidator.storageCapacity =='' "
-                          style="color: red">*</span>Storage Capacity
+                          style="color: red"></span>Storage Capacity
                       </label>
-                      <span class=" text-muted danger"
+                      <!-- <span class=" text-muted danger"
                         *ngIf="!storageCapacity.valid && (storageCapacity.dirty || storageCapacity.touched)">
                         is required!
-                      </span>
+                      </span> -->
                       <input type="text" id="storageCapacity" class="form-control border-primary" name="storageCapacity"
-                        [(ngModel)]="billValidator.storageCapacity" ngModel #storageCapacity="ngModel" required>
+                        [(ngModel)]="billValidator.storageCapacity" ngModel #storageCapacity="ngModel">
 
                         </div>
                       </div>
 
                     </div>
                     <div class="row">
+
+                      <!-- <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="billAmountCapacity"><span *ngIf="billValidator.billAmountCapacity == undefined || billValidator.billAmountCapacity =='' "
+                              style="color: red">*</span>Cash Capacity
+                          </label>
+                          <span class=" text-muted danger"
+                            *ngIf="!billAmountCapacity.valid && (billAmountCapacity.dirty || billAmountCapacity.touched)">
+                            is required!
+                          </span>
+                          <input type="number" id="billAmountCapacity" class="form-control border-primary" name="billAmountCapacity"
+                            [(ngModel)]="billValidator.billAmountCapacity" ngModel #billAmountCapacity="ngModel" required>
+                        </div>
+                      </div> -->
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="d-block">Status</label>

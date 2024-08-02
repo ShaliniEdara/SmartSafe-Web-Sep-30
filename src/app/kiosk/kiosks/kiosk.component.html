@@ -372,3 +372,42 @@
   </div>
 
 </section>
+<div class="modal1" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content1">
+          <div class="modal-header">
+              <h5 class="modal-title" style="color:white">Status</h5>
+          </div>
+          <div class="modal-body" style="color:white">
+              <h2 style="font-size: 20px;"><strong>{{dynamicText}}</strong></h2>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class ="btn btn-raised btn-primary mr-1" (click)="closePopup()">
+                 Ok
+              </button>
+              
+          </div>
+      </div>
+  </div>
+</div> 
+
+<div class="modal1" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle1}">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content1">
+          <div class="modal-header">
+              <h5 class="modal-title" style="color:white">Status</h5>
+          </div>
+          <div class="modal-body" style="color:white">
+              <h2 style="font-size: 20px;"><strong>{{dynamicText2}}</strong></h2>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class ="btn btn-raised btn-primary mr-1" (click)="closePopup1()">
+                 Ok
+              </button>
+              <button type="button" class ="btn btn-raised btn-warning" routerLink="/dashboard">
+                Cancel
+             </button>
+          </div>
+      </div>
+  </div>
+</div> 

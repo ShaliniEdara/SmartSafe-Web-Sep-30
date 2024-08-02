@@ -78,20 +78,19 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label class="form-control-label" for="mobile">
-                          <span *ngIf="user.mobile == undefined || user.mobile =='' " style="color: red">*</span>
-                          
+                          <span *ngIf="user.mobile == undefined || user.mobile =='' " style="color: red">*</span>   
                           Mobile</label>
-                          
                         <span class=" text-muted danger"
                           *ngIf="!mobile.valid && (mobile.dirty || mobile.touched)">
-                          <span *ngIf="mobile.errors.required">is required!</span>
-                          <!-- <span *ngIf="mobile.errors.pattern"> Mobile No must be like 123-456-7890</span> -->
+                          is required!
                         </span>
+                          <!-- <span *ngIf="mobile.errors.required">is required!</span> -->
+                          <!-- <span *ngIf="mobile.errors.pattern"> Mobile No must be like 123-456-7890</span> -->
+                        
                                                 
                         <input type="text"  id="mobile" class="form-control border-primary" name="mobile"
-                          [(ngModel)]="user.mobile" ngModel #mobile="ngModel"
-                          pattern="\d{3}-\d{3}-\d{4}" (input)="formatPhoneNumber($event)" required>
-
+                          pattern="\(\d{3}\) \d{3}-\d{4}" (input)="formatPhoneNumber($event)"
+                          [(ngModel)]="user.mobile" ngModel #mobile="ngModel" required>
                       </div>
                     </div>
                   </div>
@@ -207,7 +206,7 @@
 
 
                 <div class="form-actions center">
-                  <button type="button" class="btn btn-raised btn-primary mr-1" (click)=" onSaveConfirm()"
+                  <button type="button" class="btn btn-raised btn-primary mr-1" (click)="onSaveConfirm()"
                   [disabled]="!addClassForm.valid">
                   <i class="fa fa-check-square-o"></i> Save
                 </button>
