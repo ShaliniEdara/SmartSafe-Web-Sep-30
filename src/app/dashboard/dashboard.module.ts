@@ -10,10 +10,11 @@ import { ChartsReportsComponent } from './charts-reports/charts-reports.componen
 // import { PieChartsComponent } from './pie-charts/pie-charts.component';
 import { AllstoreInfoComponent } from './allstore-info/allstore-info.component';
 import { CropInfoComponent } from './crop-info/crop-info.component';
+import { DashboardInfoComponent } from './dashboard-info/dashboard-info.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent,  ChartsReportsComponent,  AllstoreInfoComponent, CropInfoComponent],
+  declarations: [DashboardComponent,  ChartsReportsComponent,  AllstoreInfoComponent, CropInfoComponent, DashboardInfoComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
